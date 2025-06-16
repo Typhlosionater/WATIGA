@@ -1,1 +1,231 @@
+Configs: {
+	ServerConfig: {
+		DisplayName: Server Config
 
+		LunaticCultistWeapons: {
+			Label: Lunatic Cultist Weapons
+			Tooltip: ""
+		}
+
+		SkeletronWeapons: {
+			Label: Skeletron Weapons
+			Tooltip: ""
+		}
+
+		HardmodeOreGuns: {
+			Label: Hardmode Ore Guns
+			Tooltip: ""
+		}
+
+		MiscPreHardmodeWeapons: {
+			Label: Misc Pre-Hardmode Weapons
+			Tooltip: ""
+		}
+
+		Misc: {
+			Label: Misc
+			Tooltip: ""
+		}
+
+		ExpertAccessories: {
+			Label: Expert Accessories
+			Tooltip: ""
+		}
+
+		FragmentEmblems: {
+			Label: Fragment Emblems
+			Tooltip: ""
+		}
+
+		GemCharmAccessories: {
+			Label: Gem Charm Accessories
+			Tooltip: ""
+		}
+
+		SummonerHardmodeOreHelmets: {
+			Label: Summoner Hardmode Ore Helmets
+			Tooltip: ""
+		}
+
+		NewContent: {
+			Label: New Content
+			Tooltip: ""
+		}
+
+		VanillaReworks: {
+			Label: Vanilla Reworks
+			Tooltip: ""
+		}
+
+		RecipeTweaks: {
+			Label: Recipe Tweaks
+			Tooltip: ""
+		}
+	}
+
+	NewContentPage: {
+		Tooltip: ""
+
+		LunaticCultistWeapons: {
+			Label: Lunatic Cultist Weapons
+			Tooltip: ""
+		}
+
+		SkeletronWeapons: {
+			Label: Skeletron Weapons
+			Tooltip: ""
+		}
+
+		HardmodeOreGuns: {
+			Label: Hardmode Ore Guns
+			Tooltip: ""
+		}
+
+		MiscPreHardmodeWeapons: {
+			Label: Misc Pre-Hardmode Weapons
+			Tooltip: ""
+		}
+
+		ExpertAccessories: {
+			Label: Expert Accessories
+			Tooltip: ""
+		}
+
+		FragmentEmblems: {
+			Label: Fragment Emblems
+			Tooltip: ""
+		}
+
+		GemCharmAccessories: {
+			Label: Gem Charm Accessories
+			Tooltip: ""
+		}
+
+		SummonerHardmodeOreHelmets: {
+			Label: Summoner Hardmode Ore Helmets
+			Tooltip: ""
+		}
+	}
+
+	VanillaReworksPage: {
+		Tooltip: ""
+
+		FlinxFurRework: {
+			Label: Flinx Fur Rework
+			Tooltip: ""
+		}
+
+		StardustArmorRework: {
+			Label: Stardust Armor Rework
+			Tooltip: ""
+		}
+
+		TikiArmorRework: {
+			Label: Tiki Armor Rework
+			Tooltip: ""
+		}
+
+		GogglesVanityChange: {
+			Label: Goggles Vanity Change
+			Tooltip: ""
+		}
+
+		RainArmorVanityChange: {
+			Label: Rain Armor Vanity Change
+			Tooltip: ""
+		}
+
+		PotionChanges: {
+			Label: Potion Changes
+			Tooltip: ""
+		}
+
+		ChesterRework: {
+			Label: Chester Rework
+			Tooltip: ""
+		}
+	}
+
+	RecipeTweaksPage: {
+		Tooltip: ""
+
+		WoodArmorDefenseChange: {
+			Label: Wood Armor Defense Change
+			Tooltip: ""
+		}
+
+		StarCannonRecipeChange: {
+			Label: Star Cannon Recipe Change
+			Tooltip: ""
+		}
+
+		BeetleArmorRecipeChange: {
+			Label: Beetle Armor Recipe Change
+			Tooltip: ""
+		}
+
+		MusketBallRecipe: {
+			Label: Musket Ball Recipe
+			Tooltip: ""
+		}
+
+		BloodyTearRecipe: {
+			Label: Bloody Tear Recipe
+			Tooltip: ""
+		}
+	}
+
+	MiscPage: {
+		Tooltip: ""
+
+		DamageReductionUI: {
+			Label: Damage Reduction UI
+			Tooltip: ""
+		}
+
+		TravellingMerchantExtraSlots: {
+			Label: Travelling Merchant Extra Slots
+			Tooltip: ""
+		}
+
+		PaladinShieldVisuals: {
+			Label: Paladin Shield Visuals
+			Tooltip: ""
+		}
+
+		AmmoLocalImmunityFrames: {
+			Label: Ammo Local Immunity Frames
+			Tooltip: ""
+		}
+
+		SoulOfBlight: {
+			Label: Soul Of Blight
+			Tooltip: ""
+		}
+
+		KingSlimeSlimeStaffDrop: {
+			Label: King Slime Slime Staff Drop
+			Tooltip: ""
+		}
+
+		SteampunkerOppositeEvilSolutions: {
+			Label: Steampunker Opposite Evil Solutions
+			Tooltip: ""
+		}
+
+		GraveyardOppositeEvilMimic: {
+			Label: Graveyard Opposite Evil Mimic
+			Tooltip: ""
+		}
+
+		FriendlyHeartAndManaStars: {
+			Label: Friendly Heart And Mana Stars
+			Tooltip: ""
+		}
+
+		FullHealthRespawn: {
+			Label: Full Health Respawn
+			Tooltip: ""
+		}
+	}
+}
