@@ -13,10 +13,10 @@ public class ServerConfig : ModConfig
 		get => ConfigScope.ServerSide;
 	}
 
-	public NewContentPage NewContent = new NewContentPage();
-	public VanillaReworksPage VanillaReworks = new VanillaReworksPage();
-	public RecipeTweaksPage RecipeTweaks = new RecipeTweaksPage();
-	public MiscPage Misc = new MiscPage();
+	public NewContentPage NewContent = new();
+	public VanillaReworksPage VanillaReworks = new();
+	public RecipeTweaksPage RecipeTweaks = new();
+	public MiscPage Misc = new();
 
 	[SeparatePage]
 	public class NewContentPage
