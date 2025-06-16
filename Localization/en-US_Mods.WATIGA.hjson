@@ -48,6 +48,11 @@ Items: {
 			Taking damage increases this chance by 10% and blocking an attack resets it to 0%
 			'''
 	}
+
+	WyvernsHeart: {
+		DisplayName: Wyvern's Heart
+		Tooltip: Increases max life by 100
+	}
 }
 
 Projectiles.SpellweaveScarfOrbital.DisplayName: Spellweave Scarf Orbital
