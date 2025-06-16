@@ -2,64 +2,24 @@ Configs: {
 	ServerConfig: {
 		DisplayName: Server Config
 
-		LunaticCultistWeapons: {
-			Label: Lunatic Cultist Weapons
-			Tooltip: ""
-		}
-
-		SkeletronWeapons: {
-			Label: Skeletron Weapons
-			Tooltip: ""
-		}
-
-		HardmodeOreGuns: {
-			Label: Hardmode Ore Guns
-			Tooltip: ""
-		}
-
-		MiscPreHardmodeWeapons: {
-			Label: Misc Pre-Hardmode Weapons
-			Tooltip: ""
-		}
-
 		Misc: {
+			Tooltip: ""
 			Label: Misc
-			Tooltip: ""
-		}
-
-		ExpertAccessories: {
-			Label: Expert Accessories
-			Tooltip: ""
-		}
-
-		FragmentEmblems: {
-			Label: Fragment Emblems
-			Tooltip: ""
-		}
-
-		GemCharmAccessories: {
-			Label: Gem Charm Accessories
-			Tooltip: ""
-		}
-
-		SummonerHardmodeOreHelmets: {
-			Label: Summoner Hardmode Ore Helmets
-			Tooltip: ""
-		}
-
-		NewContent: {
-			Label: New Content
-			Tooltip: ""
-		}
-
-		VanillaReworks: {
-			Label: Vanilla Reworks
-			Tooltip: ""
 		}
 
 		RecipeTweaks: {
-			Label: Recipe Tweaks
 			Tooltip: ""
+			Label: Recipe Tweaks
+		}
+
+		VanillaReworks: {
+			Tooltip: ""
+			Label: Vanilla Reworks
+		}
+
+		NewContent: {
+			Tooltip: ""
+			Label: New Content
 		}
 	}
 
@@ -97,8 +57,8 @@ Configs: {
 		}
 
 		GemCharmAccessories: {
-			Label: Gem Charm Accessories
-			Tooltip: ""
+			Label: "[i:WATIGA/PrismaticCharm] Gem Charm Accessories"
+			Tooltip: Adds a set of early game accessories crafted from gems
 		}
 
 		SummonerHardmodeOreHelmets: {
@@ -227,5 +187,48 @@ Configs: {
 			Label: Full Health Respawn
 			Tooltip: ""
 		}
+	}
+}
+
+Items: {
+	TopazCharm: {
+		DisplayName: Topaz Charm
+		Tooltip: 4% increased movement speed
+	}
+
+	SapphireCharm: {
+		Tooltip: 4% increased magic damage
+		DisplayName: Sapphire Charm
+	}
+
+	RubyCharm: {
+		Tooltip: 4% increased melee damage
+		DisplayName: Ruby Charm
+	}
+
+	PrismaticCharm: {
+		Tooltip:
+			'''
+			4% increased damage
+			4% increased critical strike chance
+			4% increased movement speed
+			'Finally, I have them all...'
+			'''
+		DisplayName: Prismatic Charm
+	}
+
+	EmeraldCharm: {
+		Tooltip: 4% increased ranged damage
+		DisplayName: Emerald Charm
+	}
+
+	DiamondCharm: {
+		Tooltip: 4% increased critical strike chance
+		DisplayName: Diamond Charm
+	}
+
+	AmethystCharm: {
+		Tooltip: 4% increased summon damage
+		DisplayName: Amethyst Charm
 	}
 }
