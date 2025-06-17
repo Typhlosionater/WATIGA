@@ -53,6 +53,18 @@ Items: {
 		DisplayName: Wyvern's Heart
 		Tooltip: Increases max life by 100
 	}
+
+	SoulStorageDevice: {
+		DisplayName: Soul Storage Device
+		Tooltip: Prevents death once every 3 minutes
+	}
 }
 
 Projectiles.SpellweaveScarfOrbital.DisplayName: Spellweave Scarf Orbital
+
+Buffs: {
+	SoulStorageDeviceCooldown: {
+		DisplayName: Soul Storage Repair
+		Description: Soul Storage Device is on cooldown
+	}
+}
