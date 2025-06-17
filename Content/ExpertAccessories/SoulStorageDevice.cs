@@ -1,7 +1,6 @@
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using WATIGA.Common;
-using Terraria.ID;
 
 namespace WATIGA.Content.ExpertAccessories;
 
@@ -38,7 +37,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 
 		Player.Heal(Player.statLifeMax2 / 2);
 		Player.AddBuff(ModContent.BuffType<SoulStorageDeviceCooldown>(), 3 * 60 * 60);
-		
+
 		return false;
 	}
 }
