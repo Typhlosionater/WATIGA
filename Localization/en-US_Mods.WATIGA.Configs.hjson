@@ -46,7 +46,7 @@ NewContentPage: {
 	}
 
 	ExpertAccessories: {
-		Label: "[i:WATIGA/SpellweaveScarf] Expert Accessories"
+		Label: "[tunatex:WATIGA/Content/ExpertAccessories/SpellweaveScarf] Expert Accessories"
 		Tooltip: Adds Expert Mode exclusive accessories to the Lunatic Cultist, Betsy, and Mech Bosses
 	}
 
@@ -56,7 +56,7 @@ NewContentPage: {
 	}
 
 	GemCharmAccessories: {
-		Label: "[i:WATIGA/PrismaticCharm] Gem Charm Accessories"
+		Label: "[tunatex:WATIGA/Content/GemCharms/PrismaticCharm] Gem Charm Accessories"
 		Tooltip: Adds a set of early game accessories crafted from gems
 	}
 

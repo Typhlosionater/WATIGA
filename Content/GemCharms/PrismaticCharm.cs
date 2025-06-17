@@ -5,6 +5,10 @@ namespace WATIGA.Content.GemCharms;
 [AutoloadEquip(EquipType.Neck)]
 public class PrismaticCharm : ModItem
 {
+	public override bool IsLoadingEnabled(Mod mod) {
+		return ServerConfig.Instance.NewContent.GemCharmAccessories;
+	}
+	
 	public override void SetDefaults() {
 		Item.width = 26;
 		Item.height = 34;
@@ -20,16 +24,14 @@ public class PrismaticCharm : ModItem
 	}
 
 	public override void AddRecipes() {
-		if (ServerConfig.Instance.NewContent.GemCharmAccessories) {
-			CreateRecipe()
-				.AddIngredient<AmethystCharm>()
-				.AddIngredient<DiamondCharm>()
-				.AddIngredient<EmeraldCharm>()
-				.AddIngredient<RubyCharm>()
-				.AddIngredient<SapphireCharm>()
-				.AddIngredient<TopazCharm>()
-				.AddTile(TileID.TinkerersWorkbench)
-				.Register();
-		}
+		CreateRecipe()
+			.AddIngredient<AmethystCharm>()
+			.AddIngredient<DiamondCharm>()
+			.AddIngredient<EmeraldCharm>()
+			.AddIngredient<RubyCharm>()
+			.AddIngredient<SapphireCharm>()
+			.AddIngredient<TopazCharm>()
+			.AddTile(TileID.TinkerersWorkbench)
+			.Register();
 	}
 }

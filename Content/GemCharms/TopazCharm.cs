@@ -5,6 +5,10 @@ namespace WATIGA.Content.GemCharms;
 [AutoloadEquip(EquipType.Neck)]
 public class TopazCharm : ModItem
 {
+	public override bool IsLoadingEnabled(Mod mod) {
+		return ServerConfig.Instance.NewContent.GemCharmAccessories;
+	}
+	
 	public override void SetDefaults() {
 		Item.width = 26;
 		Item.height = 34;
@@ -18,13 +22,11 @@ public class TopazCharm : ModItem
 	}
 
 	public override void AddRecipes() {
-		if (ServerConfig.Instance.NewContent.GemCharmAccessories) {
-			CreateRecipe()
-				.AddIngredient(ItemID.Chain, 2)
-				.AddIngredient(ItemID.Topaz, 8)
-				.AddTile(TileID.Tables)
-				.AddTile(TileID.Chairs)
-				.Register();
-		}
+		CreateRecipe()
+			.AddIngredient(ItemID.Chain, 2)
+			.AddIngredient(ItemID.Topaz, 8)
+			.AddTile(TileID.Tables)
+			.AddTile(TileID.Chairs)
+			.Register();
 	}
 }

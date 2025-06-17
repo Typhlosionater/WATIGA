@@ -8,6 +8,10 @@ namespace WATIGA.Content.ExpertAccessories;
 
 public class WyvernsHeart : ModItem
 {
+	public override bool IsLoadingEnabled(Mod mod) {
+		return ServerConfig.Instance.NewContent.ExpertAccessories;
+	}
+
 	private static Asset<Texture2D> _glowmask;
 
 	public override void Load() {
