@@ -8,7 +8,7 @@ public class EmeraldCharm : ModItem
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.GemCharmAccessories;
 	}
-	
+
 	public override void SetDefaults() {
 		Item.width = 26;
 		Item.height = 34;

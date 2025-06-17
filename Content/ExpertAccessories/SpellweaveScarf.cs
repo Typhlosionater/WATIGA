@@ -9,7 +9,7 @@ public class SpellweaveScarf : ModItem
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.ExpertAccessories;
 	}
-	
+
 	public override void SetDefaults() {
 		Item.width = 20;
 		Item.height = 26;
@@ -32,7 +32,7 @@ public class SpellweaveScarfPlayer : ModPlayer
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.ExpertAccessories;
 	}
-	
+
 	public bool Active;
 	public Item Item;
 
@@ -76,7 +76,7 @@ public class SpellweaveScarfOrbital : ModProjectile
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.ExpertAccessories;
 	}
-	
+
 	private static Player Owner {
 		get => Main.player[Main.myPlayer];
 	}

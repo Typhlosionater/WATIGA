@@ -31,7 +31,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.ExpertAccessories;
 	}
-	
+
 	public bool Active;
 
 	public override void ResetEffects() {
@@ -55,7 +55,7 @@ public class SoulStorageDeviceCooldown : ModBuff
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.ExpertAccessories;
 	}
-	
+
 	public override void SetStaticDefaults() {
 		Main.debuff[Type] = true;
 		BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
