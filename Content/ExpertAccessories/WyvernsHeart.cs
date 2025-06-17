@@ -34,10 +34,10 @@ public class WyvernsHeart : ModItem
 	}
 
 	public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI) {
-		Texture2D texture = TextureAssets.Item[Type].Value;
+		Texture2D texture = _glowmask.Value;
 		DrawData drawData = new() {
 			texture = texture,
-			position = (Item.Center - Main.screenPosition).Floor(),
+			position = Item.Center - Main.screenPosition,
 			sourceRect = texture.Frame(),
 			origin = texture.Size() / 2f,
 			rotation = rotation,

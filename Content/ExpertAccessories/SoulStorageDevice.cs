@@ -44,6 +44,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 		}
 
 		Player.Heal(Player.statLifeMax2 / 2);
+		Player.SetImmuneTimeForAllTypes(Player.longInvince ? 120 : 80);
 		Player.AddBuff(ModContent.BuffType<SoulStorageDeviceCooldown>(), 3 * 60 * 60);
 
 		return false;
