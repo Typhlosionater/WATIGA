@@ -1,6 +1,8 @@
+using FishUtils.DataStructures;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using WATIGA.Common;
+using WATIGA.Common.RenderTargets;
 
 namespace WATIGA.Content.ExpertAccessories;
 
@@ -33,9 +35,25 @@ public class SoulStorageDevicePlayer : ModPlayer
 	}
 
 	public bool Active;
+	public bool OnCooldown;
+	
+	private float _glitchIntensity = 0f;
 
 	public override void ResetEffects() {
 		Active = false;
+		OnCooldown = false;
+	}
+
+	public override void PostUpdateMiscEffects() {
+		if (!OnCooldown) {
+			_glitchIntensity = 0f;
+			return;
+		}
+		
+		_glitchIntensity *= 0.95f;
+		if (_glitchIntensity <= 0.5f) {
+			_glitchIntensity = 0.5f;
+		}
 	}
 
 	public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource) {
@@ -47,7 +65,41 @@ public class SoulStorageDevicePlayer : ModPlayer
 		Player.SetImmuneTimeForAllTypes(Player.longInvince ? 120 : 80);
 		Player.AddBuff(ModContent.BuffType<SoulStorageDeviceCooldown>(), 3 * 60 * 60);
 
+		_glitchIntensity = 10f;
+
 		return false;
+	}
+
+	public override void HideDrawLayers(PlayerDrawSet drawInfo) {
+		if (drawInfo.headOnlyRender || !PlayerRenderTarget.Ready || !OnCooldown) {
+			return;
+		}
+		
+		
+		foreach (var layer in PlayerDrawLayerLoader.Layers) {
+			layer.Hide();
+		}
+	}
+
+	public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright) {
+		if (!PlayerRenderTarget.Ready || !Active || _glitchIntensity <= 0f) {
+			return;
+		}
+
+		Main.spriteBatch.TakeSnapshotAndEnd(out var sbParams);
+		
+		var effect = Assets.Effects.Glitch.Value;
+		var sourceRect = PlayerRenderTarget.GetPlayerTargetSourceRectangle(Player.whoAmI);
+		effect.Parameters["intensity"].SetValue(_glitchIntensity);
+		effect.Parameters["textureSize"].SetValue(sourceRect.Size());
+		effect.Parameters["time"].SetValue(Main.GlobalTimeWrappedHourly);
+
+		Main.graphics.GraphicsDevice.Textures[1] = Assets.Textures.Noise01.Value;
+		
+		Main.spriteBatch.Begin(sbParams with { Effect = effect });
+
+		var color = Player.GetImmuneAlphaPure(Lighting.GetColor(Player.Center.ToTileCoordinates()), drawInfo.shadow);
+		Main.spriteBatch.Draw(PlayerRenderTarget.Target, PlayerRenderTarget.GetPlayerTargetPosition(Player.whoAmI), sourceRect, color);
 	}
 }
 
@@ -60,6 +112,10 @@ public class SoulStorageDeviceCooldown : ModBuff
 	public override void SetStaticDefaults() {
 		Main.debuff[Type] = true;
 		BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
+	}
+
+	public override void Update(Player player, ref int buffIndex) {
+		player.GetModPlayer<SoulStorageDevicePlayer>().OnCooldown = true;
 	}
 }
 
