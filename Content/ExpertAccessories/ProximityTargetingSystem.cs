@@ -44,7 +44,7 @@ public class ProximityTargetingSystemPlayer : ModPlayer
 	}
 
 	public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright) {
-		if (!Active || HideVisuals) {
+		if (!Active || HideVisuals || drawInfo.shadow != 0f) {
 			return;
 		}
 
