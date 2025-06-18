@@ -16,7 +16,7 @@ public class SpellweaveScarf : ModItem
 	public override void SetDefaults() {
 		Item.width = 20;
 		Item.height = 26;
-		Item.value = Item.sellPrice(0, 15, 0, 0);
+		Item.value = Item.sellPrice(0, 10, 0, 0);
 		Item.rare = ItemRarityID.Expert;
 		Item.accessory = true;
 
