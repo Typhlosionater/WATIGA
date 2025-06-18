@@ -1,4 +1,5 @@
 using FishUtils.DataStructures;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using WATIGA.Common;
@@ -57,13 +58,17 @@ public class SoulStorageDevicePlayer : ModPlayer
 	}
 
 	public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource) {
-		if (!Active || Player.HasBuff<SoulStorageDeviceCooldown>()) {
+		if (!Active || OnCooldown) {
 			return base.PreKill(damage, hitDirection, pvp, ref playSound, ref genDust, ref damageSource);
 		}
 
 		Player.Heal(Player.statLifeMax2 / 2);
 		Player.SetImmuneTimeForAllTypes(Player.longInvince ? 120 : 80);
 		Player.AddBuff(ModContent.BuffType<SoulStorageDeviceCooldown>(), 3 * 60 * 60);
+
+		playSound = false;
+		var sound = SoundID.Item94 with { PitchRange = (-0.2f, 0.2f) };
+		SoundEngine.PlaySound(sound, Player.Center);
 
 		_glitchIntensity = 10f;
 
