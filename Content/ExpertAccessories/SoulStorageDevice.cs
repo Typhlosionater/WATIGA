@@ -13,7 +13,7 @@ public class SoulStorageDevice : ModItem
 	public override void SetDefaults() {
 		Item.width = 34;
 		Item.height = 30;
-		Item.value = Item.sellPrice(0, 10, 0, 0);
+		Item.value = Item.sellPrice(0, 5, 0, 0);
 		Item.rare = ItemRarityID.Expert;
 		Item.accessory = true;
 

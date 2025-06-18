@@ -13,7 +13,7 @@ public class ProximityTargetingSystem : ModItem
 	public override void SetDefaults() {
 		Item.width = 44;
 		Item.height = 52;
-		Item.value = Item.sellPrice(0, 15, 0, 0);
+		Item.value = Item.sellPrice(0, 5, 0, 0);
 		Item.rare = ItemRarityID.Expert;
 		Item.accessory = true;
 

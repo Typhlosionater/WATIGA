@@ -63,6 +63,26 @@ Items: {
 		DisplayName: Proximity Targeting System
 		Tooltip: Increases damage dealt to nearby enemies by 30%
 	}
+
+	NebulaEmblem: {
+		DisplayName: Nebula Emblem
+		Tooltip: 25% increased magic damage
+	}
+
+	SolarEmblem: {
+		DisplayName: Solar Emblem
+		Tooltip: 25% increased melee damage
+	}
+
+	StardustEmblem: {
+		DisplayName: Stardust Emblem
+		Tooltip: 25% increased summon damage
+	}
+
+	VortexEmblem: {
+		DisplayName: Vortex Emblem
+		Tooltip: 25% increased ranged damage
+	}
 }
 
 Projectiles.SpellweaveScarfOrbital.DisplayName: Spellweave Scarf Orbital

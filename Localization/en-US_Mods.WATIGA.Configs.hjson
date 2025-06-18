@@ -51,8 +51,8 @@ NewContentPage: {
 	}
 
 	FragmentEmblems: {
-		Label: Fragment Emblems
-		Tooltip: ""
+		Label: "[tunatex:WATIGA/Content/FragmentEmblems/SolarEmblem] Fragment Emblems"
+		Tooltip: Adds celestial event tier emblem upgrades
 	}
 
 	GemCharmAccessories: {
