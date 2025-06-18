@@ -35,8 +35,7 @@ class PlayerRenderTarget : ILoadable
 	Vector2 oldItemLocation;
 	Vector2 positionOffset;
 
-	public void Load(Mod mod)
-	{
+	public void Load(Mod mod) {
 		if (Main.dedServ)
 			return;
 
@@ -50,23 +49,20 @@ class PlayerRenderTarget : ILoadable
 		On_Player.GetHairColor += WhiteHair;
 	}
 
-	private Color WhiteHair(On_Player.orig_GetHairColor orig, Player self, bool useLighting)
-	{
+	private Color WhiteHair(On_Player.orig_GetHairColor orig, Player self, bool useLighting) {
 		return orig(self, useLighting & Ready);
 	}
 
-	private Color WhiteForPlayer(On_Lighting.orig_GetColorClamped orig, int x, int y, Color oldColor)
-	{
+	private Color WhiteForPlayer(On_Lighting.orig_GetColorClamped orig, int x, int y, Color oldColor) {
 		if (Ready)
 			return orig(x, y, oldColor);
 		else
 			return oldColor;
 	}
 
-	public static Rectangle GetPlayerTargetSourceRectangle(int whoAmI)
-	{
-		if (PlayerIndexLookup.ContainsKey(whoAmI))
-			return new Rectangle(PlayerIndexLookup[whoAmI] * sheetSquareX, 0, sheetSquareX, sheetSquareY);
+	public static Rectangle GetPlayerTargetSourceRectangle(int whoAmI) {
+		if (PlayerIndexLookup.TryGetValue(whoAmI, out int value))
+			return new Rectangle(value * sheetSquareX, 0, sheetSquareX, sheetSquareY);
 
 		return Rectangle.Empty;
 	}
@@ -77,14 +73,12 @@ class PlayerRenderTarget : ILoadable
 	/// </summary>
 	/// <param name="whoAmI"></param>
 	/// <returns></returns>
-	public static Vector2 GetPlayerTargetPosition(int whoAmI)
-	{
+	public static Vector2 GetPlayerTargetPosition(int whoAmI) {
 		Vector2 gravPosition = Main.ReverseGravitySupport(Main.player[whoAmI].position - Main.screenPosition);
 		return gravPosition - new Vector2(sheetSquareX / 2, sheetSquareY / 2) + Vector2.UnitY * Main.player[whoAmI].gfxOffY;
 	}
 
-	private void DrawTargets(On_Main.orig_CheckMonoliths orig)
-	{
+	private void DrawTargets(On_Main.orig_CheckMonoliths orig) {
 		orig();
 
 		if (Main.gameMenu)
@@ -97,20 +91,17 @@ class PlayerRenderTarget : ILoadable
 			return;
 	}
 
-	public static Vector2 GetPositionOffset(int whoAmI)
-	{
-		if (PlayerIndexLookup.ContainsKey(whoAmI))
-			return new Vector2(PlayerIndexLookup[whoAmI] * sheetSquareX + sheetSquareX / 2, sheetSquareY / 2);
+	public static Vector2 GetPositionOffset(int whoAmI) {
+		if (PlayerIndexLookup.TryGetValue(whoAmI, out int value))
+			return new Vector2(value * sheetSquareX + sheetSquareX / 2, sheetSquareY / 2);
 
 		return Vector2.Zero;
 	}
 
-	private void DrawPlayerTarget()
-	{
+	private void DrawPlayerTarget() {
 		int activePlayerCount = Main.player.Count(n => n.active);
 
-		if (activePlayerCount != prevNumPlayers)
-		{
+		if (activePlayerCount != prevNumPlayers) {
 			prevNumPlayers = activePlayerCount;
 
 			Target.Dispose();
@@ -118,10 +109,8 @@ class PlayerRenderTarget : ILoadable
 
 			int activeCount = 0;
 
-			for (int i = 0; i < Main.maxPlayers; i++)
-			{
-				if (Main.player[i].active)
-				{
+			for (int i = 0; i < Main.maxPlayers; i++) {
+				if (Main.player[i].active) {
 					PlayerIndexLookup[i] = activeCount;
 					activeCount++;
 				}
@@ -136,12 +125,10 @@ class PlayerRenderTarget : ILoadable
 
 		Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.EffectMatrix);
 
-		for (int i = 0; i < Main.maxPlayers; i++)
-		{
+		for (int i = 0; i < Main.maxPlayers; i++) {
 			Player player = Main.player[i];
 
-			if (player.active && player.dye.Length > 0)
-			{
+			if (player.active && player.dye.Length > 0) {
 				oldPos = player.position;
 				oldCenter = player.Center;
 				oldMountedCenter = player.MountedCenter;
@@ -174,6 +161,6 @@ class PlayerRenderTarget : ILoadable
 		Main.graphics.GraphicsDevice.SetRenderTargets(oldtargets2);
 		Ready = true;
 	}
-		
+
 	public void Unload() { }
 }

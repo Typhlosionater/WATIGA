@@ -18,6 +18,6 @@ public class Assets : ILoadable
 
 	public static class Effects
 	{
-        public static Asset<Effect> Glitch;
+		public static Asset<Effect> Glitch;
 	}
 }

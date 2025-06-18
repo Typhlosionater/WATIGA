@@ -36,7 +36,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 
 	public bool Active;
 	public bool OnCooldown;
-	
+
 	private float _glitchIntensity = 0f;
 
 	public override void ResetEffects() {
@@ -49,7 +49,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 			_glitchIntensity = 0f;
 			return;
 		}
-		
+
 		_glitchIntensity *= 0.95f;
 		if (_glitchIntensity <= 0.5f) {
 			_glitchIntensity = 0.5f;
@@ -74,9 +74,9 @@ public class SoulStorageDevicePlayer : ModPlayer
 		if (drawInfo.headOnlyRender || !PlayerRenderTarget.Ready || !OnCooldown) {
 			return;
 		}
-		
-		
-		foreach (var layer in PlayerDrawLayerLoader.Layers) {
+
+
+		foreach (PlayerDrawLayer layer in PlayerDrawLayerLoader.Layers) {
 			layer.Hide();
 		}
 	}
@@ -86,19 +86,19 @@ public class SoulStorageDevicePlayer : ModPlayer
 			return;
 		}
 
-		Main.spriteBatch.TakeSnapshotAndEnd(out var sbParams);
-		
-		var effect = Assets.Effects.Glitch.Value;
-		var sourceRect = PlayerRenderTarget.GetPlayerTargetSourceRectangle(Player.whoAmI);
+		Main.spriteBatch.TakeSnapshotAndEnd(out SpriteBatchParams sbParams);
+
+		Effect effect = Assets.Effects.Glitch.Value;
+		Rectangle sourceRect = PlayerRenderTarget.GetPlayerTargetSourceRectangle(Player.whoAmI);
 		effect.Parameters["intensity"].SetValue(_glitchIntensity);
 		effect.Parameters["textureSize"].SetValue(sourceRect.Size());
 		effect.Parameters["time"].SetValue(Main.GlobalTimeWrappedHourly);
 
 		Main.graphics.GraphicsDevice.Textures[1] = Assets.Textures.Noise01.Value;
-		
+
 		Main.spriteBatch.Begin(sbParams with { Effect = effect });
 
-		var color = Player.GetImmuneAlphaPure(Lighting.GetColor(Player.Center.ToTileCoordinates()), drawInfo.shadow);
+		Color color = Player.GetImmuneAlphaPure(Lighting.GetColor(Player.Center.ToTileCoordinates()), drawInfo.shadow);
 		Main.spriteBatch.Draw(PlayerRenderTarget.Target, PlayerRenderTarget.GetPlayerTargetPosition(Player.whoAmI), sourceRect, color);
 	}
 }

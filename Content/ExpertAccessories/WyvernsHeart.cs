@@ -1,6 +1,5 @@
 using ReLogic.Content;
 using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using WATIGA.Common;
 

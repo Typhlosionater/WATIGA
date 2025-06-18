@@ -34,10 +34,10 @@ public class ProximityTargetingSystemPlayer : ModPlayer
 	}
 
 	private const float Range = 16f * 12f;
-	
-	public bool Active = false;	
+
+	public bool Active = false;
 	public bool HideVisuals = true;
-	
+
 	public override void ResetEffects() {
 		Active = false;
 		HideVisuals = true;
@@ -47,22 +47,22 @@ public class ProximityTargetingSystemPlayer : ModPlayer
 		if (!Active || HideVisuals) {
 			return;
 		}
-		
+
 		for (int i = 0; i < 5; i++) {
 			Vector2 position = Player.Center + Main.rand.NextVector2CircularEdge(Range, Range);
 			if (Collision.SolidCollision(position, 1, 1)) {
 				continue;
 			}
-			
+
 			Vector2 velocity = position.DirectionTo(Player.Center) * Main.rand.NextFloat(1f, 5f);
-			var dust = Dust.NewDustPerfect(position, ModContent.DustType<ProximityTargetingSystemDust>());
+			Dust dust = Dust.NewDustPerfect(position, ModContent.DustType<ProximityTargetingSystemDust>());
 			dust.velocity = velocity;
 			dust.customData = Player;
 
 			if (Main.rand.NextBool()) {
 				dust.velocity *= 0.01f;
 			}
-			
+
 			drawInfo.DustCache.Add(dust.dustIndex);
 		}
 	}
@@ -93,20 +93,20 @@ public class ProximityTargetingSystemDust : ModDust
 		if (Collision.SolidCollision(dust.position, 1, 1)) {
 			dust.active = false;
 		}
-		
+
 		dust.velocity *= 0.95f;
 		dust.position += dust.velocity;
 
 		if (dust.customData is Player parent) {
 			dust.position += parent.position - parent.oldPosition;
 		}
-		
+
 		dust.rotation += 0.01f;
 		dust.scale -= 0.02f;
 		if (dust.scale < 0.4f) {
-			dust.active = false;	
+			dust.active = false;
 		}
-		
+
 		return false;
 	}
 }

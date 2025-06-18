@@ -1,13 +1,9 @@
 using System.Collections.Generic;
 using System.IO;
-using FishUtils.DataStructures;
-using ReLogic.Content;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using WATIGA.Common;
-using WATIGA.Common.RenderTargets;
 
 namespace WATIGA.Content.ExpertAccessories;
 
@@ -122,7 +118,7 @@ public class SpellweaveScarfOrbital : ModProjectile
 			Projectile.Kill();
 			return;
 		}
-		
+
 		Projectile.timeLeft = 2;
 
 		Vector2 ownerDifference = Owner.position - Owner.oldPosition;
@@ -151,17 +147,17 @@ public class SpellweaveScarfOrbital : ModProjectile
 		if (Dying) {
 			// Janky way of playing sound, but doesn't require a custom packet, so we ball
 			if (_deathTimer == 0 && index == 0) {
-				var sound = SoundID.Item30 with {
+				SoundStyle sound = SoundID.Item30 with {
 					PitchRange = (-0.8f, -0.5f)
 				};
 				SoundEngine.PlaySound(sound, Owner.Center);
 			}
-			
+
 			_deathTimer++;
 			if (_deathTimer > 15) {
 				Projectile.Kill();
 			}
-			
+
 			Projectile.Opacity -= 0.05f;
 		}
 	}
@@ -176,12 +172,12 @@ public class SpellweaveScarfOrbital : ModProjectile
 	}
 
 	public override bool PreDraw(ref Color lightColor) {
-		var outlineDrawData = Projectile.GetCommonDrawData(lightColor, 2, 1);
+		DrawData outlineDrawData = Projectile.GetCommonDrawData(lightColor, 2, 1);
 		Main.EntitySpriteDraw(outlineDrawData);
-		
+
 		DrawData drawData = Projectile.GetCommonDrawData(lightColor, 2);
 		Main.EntitySpriteDraw(drawData);
-		
+
 		return false;
 	}
 
