@@ -68,7 +68,7 @@ public class SpellweaveScarfPlayer : ModPlayer
 			foreach (Projectile projectile in Main.ActiveProjectiles) {
 				if (projectile.owner == Player.whoAmI && projectile.ModProjectile is SpellweaveScarfOrbital spellweaveProjectile) {
 					spellweaveProjectile.Dying = true;
-					projectile.netUpdate = true;
+					NetMessage.SendData(MessageID.SyncProjectile, number: projectile.whoAmI);
 				}
 			}
 
@@ -76,7 +76,7 @@ public class SpellweaveScarfPlayer : ModPlayer
 		}
 
 		_damageBlockChance += 0.1f;
-		Projectile.NewProjectile(Player.GetSource_Accessory(Item), Player.Center, Vector2.Zero, ModContent.ProjectileType<SpellweaveScarfOrbital>(), 0, 0);
+		Projectile.NewProjectile(Player.GetSource_Accessory(Item), Player.Center, Vector2.Zero, ModContent.ProjectileType<SpellweaveScarfOrbital>(), 0, 0, Main.myPlayer);
 		return false;
 	}
 }
@@ -87,8 +87,8 @@ public class SpellweaveScarfOrbital : ModProjectile
 		return ServerConfig.Instance.NewContent.ExpertAccessories;
 	}
 
-	private static Player Owner {
-		get => Main.player[Main.myPlayer];
+	private Player Owner {
+		get => Main.player[Projectile.owner];
 	}
 
 	public bool Dying = false;
@@ -143,6 +143,8 @@ public class SpellweaveScarfOrbital : ModProjectile
 
 		Vector2 movementDirection = Owner.Center + offset * new Vector2(1f, 0.25f) * orbitalDistance;
 		Projectile.Center = Vector2.Lerp(Projectile.Center, movementDirection, 0.3f);
+		
+		Main.NewText("i am at: " + Projectile.Center.ToString());
 
 		if (Dying) {
 			// Janky way of playing sound, but doesn't require a custom packet, so we ball

@@ -94,9 +94,9 @@ public class SoulStorageDevicePlayer : ModPlayer
 		Main.spriteBatch.TakeSnapshotAndEnd(out SpriteBatchParams sbParams);
 
 		Effect effect = Assets.Effects.Glitch.Value;
-		Rectangle sourceRect = PlayerRenderTarget.GetPlayerTargetSourceRectangle(Player.whoAmI);
-		effect.Parameters["intensity"].SetValue(_glitchIntensity);
-		effect.Parameters["textureSize"].SetValue(sourceRect.Size());
+		// Dividing by active player count as our RT is a row of each player, but uv coords are always [0..1]
+		effect.Parameters["intensity"].SetValue(_glitchIntensity / Main.CurrentFrameFlags.ActivePlayersCount);
+		effect.Parameters["textureSize"].SetValue(PlayerRenderTarget.Target.Size());
 		effect.Parameters["time"].SetValue(Main.GlobalTimeWrappedHourly);
 
 		Main.graphics.GraphicsDevice.Textures[1] = Assets.Textures.Noise01.Value;
@@ -104,7 +104,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 		Main.spriteBatch.Begin(sbParams with { Effect = effect });
 
 		Color color = Player.GetImmuneAlphaPure(Lighting.GetColor(Player.Center.ToTileCoordinates()), drawInfo.shadow);
-		Main.spriteBatch.Draw(PlayerRenderTarget.Target, PlayerRenderTarget.GetPlayerTargetPosition(Player.whoAmI), sourceRect, color);
+		Main.spriteBatch.Draw(PlayerRenderTarget.Target, PlayerRenderTarget.GetPlayerTargetPosition(Player.whoAmI), PlayerRenderTarget.GetPlayerTargetSourceRectangle(Player.whoAmI), color);
 	}
 }
 
