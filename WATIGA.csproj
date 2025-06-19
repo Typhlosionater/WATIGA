@@ -8,6 +8,7 @@
 		
 	</PropertyGroup>
 	<ItemGroup>
+	  <Folder Include="Assets\Textures\" />
 	  <Folder Include="TempArtFolder\New Experts\" />
 	</ItemGroup>
 

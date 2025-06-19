@@ -121,7 +121,12 @@ Projectiles: {
 
 Buffs: {
 	SoulStorageDeviceCooldown: {
-		DisplayName: Soul Storage Repair
-		Description: Soul Storage Device is on cooldown
+		DisplayName: Fragmented
+		Description: Your soul is too damaged to be revived right now
+	}
+
+	SpellweaveScarfBuff: {
+		DisplayName: Runic Ward
+		Description: Guarded by a Runic Ward
 	}
 }
