@@ -52,6 +52,10 @@ public class ServerConfig : ModConfig
 		[DefaultValue(true)]
 		[ReloadRequired]
 		public bool SummonerHardmodeOreHelmets = true;
+
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool NewAmmoTypes = true;
 	}
 
 	[SeparatePage]

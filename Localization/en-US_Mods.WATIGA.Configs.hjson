@@ -64,6 +64,11 @@ NewContentPage: {
 		Label: Summoner Hardmode Ore Helmets
 		Tooltip: ""
 	}
+
+	NewAmmoTypes: {
+		Label: "[tunatex:WATIGA/Content/GemCharms/BouncyArrow] New Ammo Types"
+		Tooltip: Adds a variety of new bullet and arrow types throughout progression
+	}
 }
 
 VanillaReworksPage: {

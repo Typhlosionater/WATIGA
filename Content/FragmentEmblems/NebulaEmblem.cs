@@ -11,7 +11,7 @@ public class NebulaEmblem : ModItem
 	public override void SetDefaults() {
 		Item.width = 28;
 		Item.height = 28;
-		Item.value = Item.sellPrice(0, 0, 10, 0);
+		Item.value = Item.sellPrice(0, 10, 0, 0);
 		Item.rare = ItemRarityID.Red;
 		Item.accessory = true;
 	}

@@ -83,9 +83,41 @@ Items: {
 		DisplayName: Vortex Emblem
 		Tooltip: 25% increased ranged damage
 	}
+
+	BouncyBullet: {
+		DisplayName: Bouncy Bullet
+		Tooltip: Very bouncy
+	}
+
+	PhantomBullet: {
+		DisplayName: Phantom Bullet
+		Tooltip: Passes through walls
+	}
+
+	ShadeRound: {
+		DisplayName: Shade Round
+		Tooltip: Ignores 8 points of enemy defense
+	}
+
+	GrislyBullet: {
+		DisplayName: Grisly Bullet
+		Tooltip: Causes enemies to bleed profusely
+	}
+
+	BouncyArrow: {
+		DisplayName: Bouncy Arrow
+		Tooltip: Very bouncy
+	}
 }
 
-Projectiles.SpellweaveScarfOrbital.DisplayName: Spellweave Scarf Orbital
+Projectiles: {
+	SpellweaveScarfOrbital.DisplayName: Spellweave Scarf
+	BouncyBulletProjectile.DisplayName: Bouncy Bullet
+	PhantomBulletProjectile.DisplayName: Phantom Bullet
+	ShadeRoundProjectile.DisplayName: Shade Round
+	GrislyBulletProjectile.DisplayName: Grisly Bullet
+	BouncyArrowProjectile.DisplayName: Bouncy Arrow
+}
 
 Buffs: {
 	SoulStorageDeviceCooldown: {
