@@ -56,6 +56,10 @@ public class ServerConfig : ModConfig
 		[DefaultValue(true)]
 		[ReloadRequired]
 		public bool NewAmmoTypes = true;
+
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool NewPotions = true;
 	}
 
 	[SeparatePage]

@@ -12,7 +12,7 @@ public class BouncyBullet : ModItem
 	}
 
 	public override void SetStaticDefaults() {
-		CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
+		Item.ResearchUnlockCount = 99;
 	}
 
 	public override void SetDefaults() {
@@ -20,7 +20,7 @@ public class BouncyBullet : ModItem
 		Item.height = 12;
 		Item.value = Item.sellPrice(0, 0, 0, 2);
 		Item.rare = ItemRarityID.White;
-		Item.maxStack = 9999;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.consumable = true;
 
 		Item.damage = 8;

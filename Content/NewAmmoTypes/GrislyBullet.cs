@@ -14,7 +14,7 @@ public class GrislyBullet : ModItem
 	}
 
 	public override void SetStaticDefaults() {
-		CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
+		Item.ResearchUnlockCount = 99;
 	}
 
 	public override void SetDefaults() {
@@ -22,7 +22,7 @@ public class GrislyBullet : ModItem
 		Item.height = 14;
 		Item.value = Item.sellPrice(0, 0, 0, 3);
 		Item.rare = ItemRarityID.Blue;
-		Item.maxStack = 9999;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.consumable = true;
 
 		Item.damage = 9;

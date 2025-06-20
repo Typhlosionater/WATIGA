@@ -1,11 +1,10 @@
-using System;
 using Terraria.Audio;
 using Terraria.GameContent.Creative;
 using WATIGA.Common;
 
 namespace WATIGA.Content.NewAmmoTypes;
 
-public class ShadeRound : ModItem
+public class ShimmerBullet : ModItem
 {
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.NewAmmoTypes;
@@ -13,34 +12,27 @@ public class ShadeRound : ModItem
 
 	public override void SetStaticDefaults() {
 		Item.ResearchUnlockCount = 99;
+		ItemID.Sets.ShimmerTransformToItem[ItemID.MusketBall] = Type;
 	}
 
 	public override void SetDefaults() {
-		Item.width = 10;
+		Item.width = 8;
 		Item.height = 14;
-		Item.value = Item.sellPrice(0, 0, 0, 3);
-		Item.rare = ItemRarityID.Blue;
+		Item.value = Item.sellPrice(0, 0, 0, 2);
+		Item.rare = ItemRarityID.Green;
 		Item.maxStack = Item.CommonMaxStack;
 		Item.consumable = true;
 
-		Item.damage = 8;
+		Item.damage = 9;
 		Item.DamageType = DamageClass.Ranged;
-		Item.knockBack = 2.5f;
-		Item.shootSpeed = 4.5f;
-		Item.shoot = ModContent.ProjectileType<ShadeRoundProjectile>();
+		Item.knockBack = 1.5f;
+		Item.shootSpeed = 1f;
+		Item.shoot = ModContent.ProjectileType<ShimmerBulletProjectile>();
 		Item.ammo = AmmoID.Bullet;
-	}
-
-	public override void AddRecipes() {
-		CreateRecipe(70)
-			.AddIngredient(ItemID.MusketBall, 70)
-			.AddIngredient(ItemID.ShadowScale)
-			.AddTile(TileID.Anvils)
-			.Register();
 	}
 }
 
-public class ShadeRoundProjectile : ModProjectile
+public class ShimmerBulletProjectile : ModProjectile
 {
 	public override void SetDefaults() {
 		Projectile.width = 4;
@@ -51,20 +43,28 @@ public class ShadeRoundProjectile : ModProjectile
 		Projectile.timeLeft = 600;
 		Projectile.DamageType = DamageClass.Ranged;
 		Projectile.alpha = 255;
-		Projectile.extraUpdates = 1;
+		Projectile.extraUpdates = 20;
 		Projectile.scale = 1.2f;
 
 		AIType = ProjectileID.Bullet;
-
-		Projectile.ArmorPenetration = 8;
 	}
 
+	int Lengthtest;
 	public override void AI() {
-		Lighting.AddLight(Projectile.Center, Color.Purple.ToVector3() * 0.5f);
+		if (Projectile.alpha < 250) {
+			for (int DustLoop = 0; DustLoop < 10; DustLoop++) {
+				Vector2 DustPosition = Projectile.position - (Projectile.velocity * (0.1f * DustLoop));
+				Dust TrailDust = Dust.NewDustPerfect(DustPosition, 306, Vector2.Zero, 0, Main.hslToRgb(Main.rand.NextFloat(), 1f, 0.5f), 1f + Main.rand.NextFloat() * 0.4f);
+				TrailDust.alpha = Projectile.alpha;
+				TrailDust.velocity *= 0f;
+				TrailDust.scale *= 0.8f;
+				TrailDust.noGravity = true;
+				TrailDust.rotation = Main.rand.NextFloat(0, 4);
+			}
+		}
 	}
 
 	public override void Kill(int timeLeft) {
 		SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-		Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
 	}
 }

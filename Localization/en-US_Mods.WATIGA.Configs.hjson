@@ -66,8 +66,13 @@ NewContentPage: {
 	}
 
 	NewAmmoTypes: {
-		Label: "[tunatex:WATIGA/Content/GemCharms/BouncyArrow] New Ammo Types"
+		Label: "[tunatex:WATIGA/Content/NewAmmoTypes/BouncyArrow] New Ammo Types"
 		Tooltip: Adds a variety of new bullet and arrow types throughout progression
+	}
+
+	NewPotions: {
+		Label: "[tunatex:WATIGA/Content/NewPotions/BerserkPotion] New Potions"
+		Tooltip: Adds several new potions, filling gaps left by vanilla
 	}
 }
 

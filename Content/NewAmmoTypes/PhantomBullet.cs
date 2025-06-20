@@ -11,7 +11,7 @@ public class PhantomBullet : ModItem
 	}
 
 	public override void SetStaticDefaults() {
-		CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
+		Item.ResearchUnlockCount = 99;
 	}
 
 	public override void SetDefaults() {
@@ -19,7 +19,7 @@ public class PhantomBullet : ModItem
 		Item.height = 12;
 		Item.value = Item.sellPrice(0, 0, 0, 8);
 		Item.rare = ItemRarityID.Yellow;
-		Item.maxStack = 9999;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.consumable = true;
 
 		Item.damage = 15;

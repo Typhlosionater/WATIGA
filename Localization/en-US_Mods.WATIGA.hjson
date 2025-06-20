@@ -108,6 +108,41 @@ Items: {
 		DisplayName: Bouncy Arrow
 		Tooltip: Very bouncy
 	}
+
+	ShimmerBullet: {
+		DisplayName: Shimmer Bullet
+		Tooltip: Hits enemies instantly
+	}
+
+	PhantomArrow: {
+		DisplayName: Phantom Arrow
+		Tooltip: Seeks out enemies
+	}
+
+	PiercingPotion: {
+		DisplayName: Piercing Potion
+		Tooltip: Increases armor penetration by 8
+	}
+
+	BerserkPotion: {
+		DisplayName: Berserk Potion
+		Tooltip: Increases melee damage and speed by 10%
+	}
+
+	LeapingPotion: {
+		DisplayName: Leaping Potion
+		Tooltip: Increases jump speed and fall resistance
+	}
+
+	AntagonizingPotion: {
+		DisplayName: Antagonizing Potion
+		Tooltip: Makes enemies more likely to target you
+	}
+
+	PacifyingPotion: {
+		DisplayName: Pacifying Potion
+		Tooltip: Makes enemies less likely to target you
+	}
 }
 
 Projectiles: {
@@ -117,6 +152,8 @@ Projectiles: {
 	ShadeRoundProjectile.DisplayName: Shade Round
 	GrislyBulletProjectile.DisplayName: Grisly Bullet
 	BouncyArrowProjectile.DisplayName: Bouncy Arrow
+	ShimmerBulletProjectile.DisplayName: Shimmer Bullet
+	PhantomArrowProjectile.DisplayName: Phantom Arrow
 }
 
 Buffs: {
@@ -128,5 +165,30 @@ Buffs: {
 	SpellweaveScarfBuff: {
 		DisplayName: Runic Ward
 		Description: Guarded by a Runic Ward
+	}
+
+	PiercingPotionBuff: {
+		DisplayName: Piercing
+		Description: Increased armor penetration
+	}
+
+	BerserkPotionBuff: {
+		DisplayName: Berserk
+		Description: 10% Increased melee damage and speed
+	}
+
+	LeapingPotionBuff: {
+		DisplayName: Leaping
+		Description: Increased jump speed and fall resistance
+	}
+
+	AntagonizingPotionBuff: {
+		DisplayName: Antagonizing
+		Description: Enemies are more likely to target you
+	}
+
+	PacifyingPotionBuff: {
+		DisplayName: Pacifying
+		Description: Enemies are less likely to target you
 	}
 }
