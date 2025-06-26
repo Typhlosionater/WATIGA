@@ -151,7 +151,11 @@ Items: {
 
 	ChlorophyteCowl: {
 		DisplayName: Chlorophyte Cowl
-		Tooltip: ""
+		Tooltip:
+			'''
+			Increases your max number of minions by {0}
+			Increases summon damage by {1:P0}
+			'''
 	}
 }
 
