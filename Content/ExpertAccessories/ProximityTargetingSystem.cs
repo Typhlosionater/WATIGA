@@ -69,7 +69,7 @@ public class ProximityTargetingSystemPlayer : ModPlayer
 
 	public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
 		if (Active && Player.WithinRange(target.Center, Range)) {
-			modifiers.FinalDamage += 0.3f;
+			modifiers.FinalDamage += 0.2f;
 		}
 	}
 }

@@ -61,7 +61,7 @@ Items: {
 
 	ProximityTargetingSystem: {
 		DisplayName: Proximity Targeting System
-		Tooltip: Increases damage dealt to nearby enemies by 30%
+		Tooltip: Increases damage dealt to nearby enemies by 20%
 	}
 
 	NebulaEmblem: {
@@ -83,6 +83,12 @@ Items: {
 		DisplayName: Vortex Emblem
 		Tooltip: 25% increased ranged damage
 	}
+
+	EradicationDrive: {
+		DisplayName: Eradication Drive
+		Tooltip: ""
+	}
+}
 
 	BouncyBullet: {
 		DisplayName: Bouncy Bullet
@@ -147,6 +153,12 @@ Items: {
 
 Projectiles: {
 	SpellweaveScarfOrbital.DisplayName: Spellweave Scarf
+	EradicationDriveChainsaw.DisplayName: Eradication Drive Chainsaw
+	EradicationDrivePincer.DisplayName: Eradication Drive Pincer
+	EradicationDriveCannon.DisplayName: Eradication Drive Cannon
+	EradicationDriveCannonball.DisplayName: Eradication Drive Cannonball
+	EradicationDriveLaser.DisplayName: Eradication Drive Laser
+	EradicationDriveLaserProjectile.DisplayName: Eradication Drive Laser Projectile
 	BouncyBulletProjectile.DisplayName: Bouncy Bullet
 	PhantomBulletProjectile.DisplayName: Phantom Bullet
 	ShadeRoundProjectile.DisplayName: Shade Round

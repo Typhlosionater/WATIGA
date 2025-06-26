@@ -94,6 +94,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 		Main.spriteBatch.TakeSnapshotAndEnd(out SpriteBatchParams sbParams);
 
 		Effect effect = Assets.Effects.Glitch.Value;
+		
 		// Dividing by active player count as our RT is a row of each player, but uv coords are always [0..1]
 		effect.Parameters["intensity"].SetValue(_glitchIntensity / Main.CurrentFrameFlags.ActivePlayersCount);
 		effect.Parameters["textureSize"].SetValue(PlayerRenderTarget.Target.Size());
