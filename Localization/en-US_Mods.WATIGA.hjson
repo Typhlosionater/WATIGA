@@ -153,7 +153,62 @@ Items: {
 		DisplayName: Chlorophyte Cowl
 		Tooltip:
 			'''
-			Increases your max number of minions by {0}
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Increases summon damage by {1:P0}
+			'''
+	}
+
+	AdamantiteHood: {
+		DisplayName: Adamantite Hood
+		Tooltip:
+			'''
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Increases summon damage by {1:P0}
+			'''
+		SetBonus: Increases your max number of minions by {0}
+	}
+
+	TitaniumHood: {
+		DisplayName: Titanium Hood
+		Tooltip:
+			'''
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Increases summon damage by {1:P0}
+			'''
+	}
+
+	MythrilCrown: {
+		DisplayName: Mythril Crown
+		Tooltip:
+			'''
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Increases summon damage by {1:P0}
+			'''
+	}
+
+	OrichalcumCrown: {
+		DisplayName: Orichalcum Crown
+		Tooltip:
+			'''
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Increases summon damage by {1:P0}
+			'''
+	}
+
+	CobaltHood: {
+		DisplayName: Cobalt Hood
+		Tooltip:
+			'''
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Increases summon damage by {1:P0}
+			'''
+	}
+
+	PalladiumHood: {
+		DisplayName: Palladium Hood
+		Tooltip:
+			'''
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
 			Increases summon damage by {1:P0}
 			'''
 	}
