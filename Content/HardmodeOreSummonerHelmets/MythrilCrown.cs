@@ -19,6 +19,10 @@ public class MythrilCrown : ModItem
 		get => base.Tooltip.WithFormatArgs(MaxMinionsIncrease, SummonDamageIncrease);
 	}
 
+	public override void SetStaticDefaults() {
+		ArmorIDs.Head.Sets.DrawHatHair[EquipLoader.GetEquipSlot(Mod, Name, EquipType.Head)] = true;
+	}
+
 	public override void SetDefaults() {
 		Item.width = 28;
 		Item.height = 22;
