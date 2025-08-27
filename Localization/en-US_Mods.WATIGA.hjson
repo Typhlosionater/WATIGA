@@ -212,6 +212,11 @@ Items: {
 			Increases summon damage by {1:P0}
 			'''
 	}
+
+	AlphaCentauri: {
+		DisplayName: Alpha Centauri
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -229,6 +234,7 @@ Projectiles: {
 	BouncyArrowProjectile.DisplayName: Bouncy Arrow
 	ShimmerBulletProjectile.DisplayName: Shimmer Bullet
 	PhantomArrowProjectile.DisplayName: Phantom Arrow
+	AlphaCentauriProjectile.DisplayName: Alpha Centauri Projectile
 }
 
 Buffs: {

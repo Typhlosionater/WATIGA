@@ -1,3 +1,4 @@
+global using ReLogic.Content;
 global using FishUtils.Helpers;
 global using Microsoft.Xna.Framework;
 global using Microsoft.Xna.Framework.Graphics;
