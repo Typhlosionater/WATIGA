@@ -11,7 +11,7 @@ public class ChlorophyteCowl : ModItem
 		return ServerConfig.Instance.NewContent.SummonerHardmodeOreHelmets;
 	}
 
-	private const int MaxMinionsIncrease = 2;	
+	private const int MaxMinionsIncrease = 2;
 	private const float SummonDamageIncrease = 0.22f;
 
 	public override LocalizedText Tooltip {

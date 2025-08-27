@@ -1,6 +1,7 @@
 using System;
 using Terraria.Audio;
 using WATIGA.Common;
+using Terraria.ID;
 
 namespace WATIGA.Content.NewAmmoTypes;
 
@@ -85,7 +86,7 @@ public class BouncyArrowProjectile : ModProjectile
 		SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
 		for (int num450 = 0; num450 < 6; num450++) {
-			int ImpactDust = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 248);
+			_ = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.EnchantedNightcrawler);
 		}
 	}
 }

@@ -67,7 +67,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 		Player.AddBuff(ModContent.BuffType<SoulStorageDeviceCooldown>(), 3 * 60 * 60);
 
 		playSound = false;
-		var sound = SoundID.Item94 with { PitchRange = (-0.2f, 0.2f) };
+		SoundStyle sound = SoundID.Item94 with { PitchRange = (-0.2f, 0.2f) };
 		SoundEngine.PlaySound(sound, Player.Center);
 
 		_glitchIntensity = 10f;
@@ -94,7 +94,7 @@ public class SoulStorageDevicePlayer : ModPlayer
 		Main.spriteBatch.TakeSnapshotAndEnd(out SpriteBatchParams sbParams);
 
 		Effect effect = Assets.Effects.Glitch.Value;
-		
+
 		// Dividing by active player count as our RT is a row of each player, but uv coords are always [0..1]
 		effect.Parameters["intensity"].SetValue(_glitchIntensity / Main.CurrentFrameFlags.ActivePlayersCount);
 		effect.Parameters["textureSize"].SetValue(PlayerRenderTarget.Target.Size());

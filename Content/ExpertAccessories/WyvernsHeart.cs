@@ -1,4 +1,3 @@
-using ReLogic.Content;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using WATIGA.Common;

@@ -143,7 +143,7 @@ public class SpellweaveScarfOrbital : ModProjectile
 
 		Vector2 movementDirection = Owner.Center + offset * new Vector2(1f, 0.25f) * orbitalDistance;
 		Projectile.Center = Vector2.Lerp(Projectile.Center, movementDirection, 0.3f);
-		
+
 		if (Dying) {
 			// Janky way of playing sound, but doesn't require a custom packet, so we ball
 			if (_deathTimer == 0 && index == 0) {

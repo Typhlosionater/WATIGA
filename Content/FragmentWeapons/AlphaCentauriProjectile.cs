@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Terraria.Utilities;
 using WATIGA.Common.Metaballs;
 
 namespace WATIGA.Content.FragmentWeapons;
@@ -24,33 +22,33 @@ public class AlphaCentauriProjectile : ModProjectile
 		Projectile.DamageType = DamageClass.MeleeNoSpeed;
 		Projectile.penetrate = -1;
 	}
-	
+
 	private float _orbitAngle = 0f;
 
 	public override void AI() {
-		foreach (var npc in NPCHelpers.FindNearbyNPCs(10f * 16f, Projectile.Center, true)) {
+		foreach (NPC npc in NPCHelpers.FindNearbyNPCs(10f * 16f, Projectile.Center, true)) {
 			npc.AddBuff(BuffID.Daybreak, 2, true);
 		}
-		
+
 		MakeCentralMetaballs();
 
 		// Vanilla yoyo AI sets [0] to -1 when retracting
 		if (Projectile.ai[0] != -1f) {
 			MakeOrbitalMetaballs();
 		}
-		
+
 		_orbitAngle += 0.1f;
 	}
 
 	private void MakeCentralMetaballs() {
 		int num = Main.rand.Next(2, 5);
 		for (int i = 0; i < num; i++) {
-			var position = Projectile.Center + Main.rand.NextVector2Circular(8f, 8f);
-			var velocity = Main.rand.NextVector2Circular(2.5f, 2.5f);
-			var metaball = new Metaball {
+			Vector2 position = Projectile.Center + Main.rand.NextVector2Circular(8f, 8f);
+			Vector2 velocity = Main.rand.NextVector2Circular(2.5f, 2.5f);
+			Metaball metaball = new() {
 				Position = position,
-				Velocity = velocity, 
-				Scale = Main.rand.NextFloat(0.3f, 0.7f), 
+				Velocity = velocity,
+				Scale = Main.rand.NextFloat(0.3f, 0.7f),
 				Rotation = Main.rand.NextRadian(),
 				CustomData = true, // Marks it as central so they can float upwards
 			};
@@ -64,14 +62,14 @@ public class AlphaCentauriProjectile : ModProjectile
 		for (int dir = -1; dir <= 1; dir += 2) {
 			Vector2 orbitPos = Projectile.Center + (orbitDir * 100f * dir);
 			Vector2 velocity = Main.rand.NextVector2Circular(0.5f, 0.5f) + backwardsDir * Main.rand.NextFloat(0.5f);
-		
+
 			int num = Main.rand.Next(5, 10);
 			for (int i = 0; i < num; i++) {
-				var randomOffset = Main.rand.NextVector2Circular(20f, 20f);
-				var metaball = new Metaball {
-					Position = orbitPos + randomOffset, 
-					Velocity = velocity, 
-					Scale = Main.rand.NextFloat(0.2f, 0.6f), 
+				Vector2 randomOffset = Main.rand.NextVector2Circular(20f, 20f);
+				Metaball metaball = new() {
+					Position = orbitPos + randomOffset,
+					Velocity = velocity,
+					Scale = Main.rand.NextFloat(0.2f, 0.6f),
 					Rotation = Main.rand.NextRadian(),
 				};
 				MetaballGroupHandler.NewMetaball<AlphaCentauriMetaballHandler>(metaball);

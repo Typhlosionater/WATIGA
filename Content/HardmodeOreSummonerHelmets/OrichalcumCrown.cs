@@ -11,13 +11,13 @@ public class OrichalcumCrown : ModItem
 		return ServerConfig.Instance.NewContent.SummonerHardmodeOreHelmets;
 	}
 
-	private const int MaxMinionsIncrease = 1;	
+	private const int MaxMinionsIncrease = 1;
 	private const float SummonDamageIncrease = 0.17f;
 
 	public override LocalizedText Tooltip {
 		get => base.Tooltip.WithFormatArgs(MaxMinionsIncrease, SummonDamageIncrease);
 	}
-	
+
 	public override void SetStaticDefaults() {
 		ArmorIDs.Head.Sets.DrawHatHair[EquipLoader.GetEquipSlot(Mod, Name, EquipType.Head)] = true;
 	}

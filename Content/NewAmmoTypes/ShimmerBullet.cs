@@ -1,5 +1,4 @@
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using WATIGA.Common;
 
 namespace WATIGA.Content.NewAmmoTypes;
@@ -49,7 +48,6 @@ public class ShimmerBulletProjectile : ModProjectile
 		AIType = ProjectileID.Bullet;
 	}
 
-	int Lengthtest;
 	public override void AI() {
 		if (Projectile.alpha < 250) {
 			for (int DustLoop = 0; DustLoop < 10; DustLoop++) {

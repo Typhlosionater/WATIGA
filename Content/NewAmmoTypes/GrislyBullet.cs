@@ -1,9 +1,6 @@
 using System;
-using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using WATIGA.Common;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace WATIGA.Content.NewAmmoTypes;
 
