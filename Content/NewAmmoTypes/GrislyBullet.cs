@@ -74,7 +74,7 @@ public class GrislyBulletProjectile : ModProjectile
 		}
 	}
 
-	public override void Kill(int timeLeft) {
+	public override void OnKill(int timeLeft) {
 		SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 		Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
 	}

@@ -99,7 +99,7 @@ public class PhantomArrowProjectile : ModProjectile
 		return Color.White * Projectile.Opacity;
 	}
 
-	public override void Kill(int timeLeft) {
+	public override void OnKill(int timeLeft) {
 		SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
 		//Spawns dust on death

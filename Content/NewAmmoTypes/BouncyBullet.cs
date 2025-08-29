@@ -87,7 +87,7 @@ public class BouncyBulletProjectile : ModProjectile
 		return false;
 	}
 
-	public override void Kill(int timeLeft) {
+	public override void OnKill(int timeLeft) {
 		SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
 	}

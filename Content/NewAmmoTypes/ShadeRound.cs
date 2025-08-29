@@ -61,7 +61,7 @@ public class ShadeRoundProjectile : ModProjectile
 		Lighting.AddLight(Projectile.Center, Color.Purple.ToVector3() * 0.5f);
 	}
 
-	public override void Kill(int timeLeft) {
+	public override void OnKill(int timeLeft) {
 		SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 		Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
 	}
