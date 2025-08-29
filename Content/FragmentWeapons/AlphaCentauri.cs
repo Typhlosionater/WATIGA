@@ -1,7 +1,5 @@
 using FishUtils.DataStructures;
-using Terraria.DataStructures;
 using Terraria.Enums;
-using Terraria.GameContent;
 using WATIGA.Common.Metaballs;
 
 namespace WATIGA.Content.FragmentWeapons;

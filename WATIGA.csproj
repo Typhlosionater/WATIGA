@@ -15,7 +15,7 @@
 
     <!-- Allow builds on NixOS -->
     <Target Name="BuildMod" AfterTargets="Build" Condition="Exists('/etc/NIXOS')">
-        <Exec Command="steam-run dotnet $(tMLServerPath) -build $(ProjectDir) -eac $(TargetPath) -define &quot;$(DefineConstants)&quot; -unsafe $(AllowUnsafeBlocks) $(ExtraBuildModFlags)" WorkingDirectory="$(tMLSteamPath)"/>
+        <Exec Command="steam-run dotnet $(tMLServerPath) -build $(ProjectDir) -eac $(TargetPath) -define &quot;$(DefineConstants)&quot; -unsafe $(AllowUnsafeBlocks) $(ExtraBuildModFlags)" WorkingDirectory="$(tMLSteamPath)" />
     </Target>
 
 	<!-- References -->

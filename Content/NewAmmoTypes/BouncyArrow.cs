@@ -1,7 +1,6 @@
 using System;
 using Terraria.Audio;
 using WATIGA.Common;
-using Terraria.ID;
 
 namespace WATIGA.Content.NewAmmoTypes;
 
