@@ -5,8 +5,18 @@
 
 	<!-- General -->
 	<PropertyGroup>
-		
+        <!-- Allow running on NixOS -->
+        <FixedtMLPath>$(tMLPath)</FixedtMLPath>
+        <FixedtMLPath Condition="Exists('/etc/NIXOS')">$(DotNetName) $(tMLPath)</FixedtMLPath>
+        <FixedtMLServerPath>$(FixedtMLPath) -server</FixedtMLServerPath>
+        <FixedDotNetName>$(DotNetName)</FixedDotNetName>
+	    <FixedDotNetName Condition="Exists('/etc/NIXOS')">steam-run</FixedDotNetName>
 	</PropertyGroup>
+
+    <!-- Allow builds on NixOS -->
+    <Target Name="BuildMod" AfterTargets="Build" Condition="Exists('/etc/NIXOS')">
+        <Exec Command="steam-run dotnet $(tMLServerPath) -build $(ProjectDir) -eac $(TargetPath) -define &quot;$(DefineConstants)&quot; -unsafe $(AllowUnsafeBlocks) $(ExtraBuildModFlags)" WorkingDirectory="$(tMLSteamPath)"/>
+    </Target>
 
 	<!-- References -->
 

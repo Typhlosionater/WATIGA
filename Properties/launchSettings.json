@@ -2,14 +2,14 @@
 	"profiles": {
 		"Terraria": {
 			"commandName": "Executable",
-			"executablePath": "$(DotNetName)",
-			"commandLineArgs": "$(tMLPath)",
+			"executablePath": "$(FixedDotNetName)",
+			"commandLineArgs": "$(FixedtMLPath)",
 			"workingDirectory": "$(tMLSteamPath)"
 		},
 		"TerrariaServer": {
 			"commandName": "Executable",
-			"executablePath": "$(DotNetName)",
-			"commandLineArgs": "$(tMLServerPath)",
+			"executablePath": "$(FixedDotNetName)",
+			"commandLineArgs": "$(FixedtMLServerPath)",
 			"workingDirectory": "$(tMLSteamPath)"
 		}
 	}
