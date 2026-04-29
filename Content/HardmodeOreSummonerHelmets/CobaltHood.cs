@@ -20,8 +20,8 @@ public class CobaltHood : ModItem
 	}
 
 	public override void SetDefaults() {
-		Item.width = 28;
-		Item.height = 22;
+		Item.width = 30;
+		Item.height = 24;
 		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 1, silver: 50));
 		Item.defense = 1;
 	}
@@ -38,6 +38,11 @@ public class CobaltHood : ModItem
 	public override void UpdateArmorSet(Player player) {
 		player.setBonus = Language.GetText("CommonItemTooltip.IncreasesMaxMinionsBy").Format(SetBonusMaxMinionsIncrease);
 		player.maxMinions += SetBonusMaxMinionsIncrease;
+
+	}
+
+	public override void ArmorSetShadows(Player player) {
+		player.armorEffectDrawShadow = true;
 	}
 
 	public override void AddRecipes() {

@@ -11,16 +11,17 @@ public class TitaniumHood : ModItem
 		return ServerConfig.Instance.NewContent.SummonerHardmodeOreHelmets;
 	}
 
-	private const int MaxMinionsIncrease = 2;
-	private const float SummonDamageIncrease = 0.19f;
+	private const int MaxMinionsIncrease = 1;
+	private const float SummonDamageIncrease = 0.06f;
+	private const int SetBonusMaxMinionsIncrease = 2;
 
 	public override LocalizedText Tooltip {
 		get => base.Tooltip.WithFormatArgs(MaxMinionsIncrease, SummonDamageIncrease);
 	}
 
 	public override void SetDefaults() {
-		Item.width = 28;
-		Item.height = 22;
+		Item.width = 24;
+		Item.height = 24;
 		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 3));
 		Item.defense = 1;
 	}
@@ -35,8 +36,9 @@ public class TitaniumHood : ModItem
 	}
 
 	public override void UpdateArmorSet(Player player) {
-		player.setBonus = Language.GetTextValue("ArmorSetBonus.Titanium");
+		player.setBonus = Language.GetTextValue("ArmorSetBonus.Titanium") + "\n" + Language.GetText("CommonItemTooltip.IncreasesMaxMinionsBy").Format(SetBonusMaxMinionsIncrease);
 		player.onHitTitaniumStorm = true;
+		player.maxMinions += SetBonusMaxMinionsIncrease;
 	}
 
 	public override void AddRecipes() {

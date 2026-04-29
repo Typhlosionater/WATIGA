@@ -149,17 +149,8 @@ Items: {
 		Tooltip: Makes enemies less likely to target you
 	}
 
-	ChlorophyteCowl: {
-		DisplayName: Chlorophyte Cowl
-		Tooltip:
-			'''
-			{$CommonItemTooltip.IncreasesMaxMinionsBy}
-			Increases summon damage by {1:P0}
-			'''
-	}
-
-	AdamantiteHood: {
-		DisplayName: Adamantite Hood
+	AdamantiteHeadpiece: {
+		DisplayName: Adamantite Headpiece
 		Tooltip:
 			'''
 			{$CommonItemTooltip.IncreasesMaxMinionsBy}
@@ -177,8 +168,8 @@ Items: {
 			'''
 	}
 
-	MythrilCrown: {
-		DisplayName: Mythril Crown
+	MythrilMask: {
+		DisplayName: Mythril Mask
 		Tooltip:
 			'''
 			{$CommonItemTooltip.IncreasesMaxMinionsBy}
@@ -186,8 +177,8 @@ Items: {
 			'''
 	}
 
-	OrichalcumCrown: {
-		DisplayName: Orichalcum Crown
+	OrichalcumHat: {
+		DisplayName: Orichalcum Hat
 		Tooltip:
 			'''
 			{$CommonItemTooltip.IncreasesMaxMinionsBy}
@@ -204,8 +195,8 @@ Items: {
 			'''
 	}
 
-	PalladiumHood: {
-		DisplayName: Palladium Hood
+	PalladiumHeadpiece: {
+		DisplayName: Palladium Headpiece
 		Tooltip:
 			'''
 			{$CommonItemTooltip.IncreasesMaxMinionsBy}
