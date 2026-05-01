@@ -208,6 +208,36 @@ Items: {
 		DisplayName: Alpha Centauri
 		Tooltip: ""
 	}
+
+	CobaltPistol: {
+		Tooltip: ""
+		DisplayName: Cobalt Pistol
+	}
+
+	PalladiumRevolver: {
+		Tooltip: ""
+		DisplayName: Palladium Revolver
+	}
+
+	MythrilSMG: {
+		Tooltip: ""
+		DisplayName: Mythril SMG
+	}
+
+	OrichalcumMP5: {
+		Tooltip: ""
+		DisplayName: Orichalcum MP5
+	}
+
+	HallowedMagnum: {
+		Tooltip: Shoots a powerful, high velocity bullet
+		DisplayName: Hallowed Magnum
+	}
+
+	ChlorophyteCarbine: {
+		Tooltip: ""
+		DisplayName: Chlorophyte Carbine
+	}
 }
 
 Projectiles: {
