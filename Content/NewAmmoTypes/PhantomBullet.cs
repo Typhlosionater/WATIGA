@@ -64,14 +64,14 @@ public class PhantomBulletProjectile : ModProjectile
 
 	public override void AI() {
 		if (Projectile.alpha < 190) {
-			for (int DustLoop = 0; DustLoop < 10; DustLoop++) {
-				Vector2 DustPosition = Projectile.position - (Projectile.velocity * (0.1f * DustLoop));
-				int TrailDust = Dust.NewDust(DustPosition, 0, 0, DustID.DungeonSpirit);
-				Main.dust[TrailDust].alpha = Projectile.alpha;
-				Main.dust[TrailDust].velocity *= 0f;
-				Main.dust[TrailDust].scale *= 0.8f;
-				Main.dust[TrailDust].noGravity = true;
-				Main.dust[TrailDust].rotation = Main.rand.NextFloat(0, 4);
+			for (int i = 0; i < 10; i++) {
+				Vector2 dustPosition = Projectile.position - (Projectile.velocity * (0.1f * i));
+				Dust dust = Dust.NewDustPerfect(dustPosition, DustID.DungeonSpirit);
+				dust.alpha = Projectile.alpha;
+				dust.velocity *= 0f;
+				dust.scale *= 0.8f;
+				dust.noGravity = true;
+				dust.rotation = Main.rand.NextFloat(0, 4);
 			}
 		}
 	}

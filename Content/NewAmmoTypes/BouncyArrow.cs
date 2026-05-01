@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Build.Framework;
 using Terraria.Audio;
 using WATIGA.Common;
 
@@ -54,29 +55,21 @@ public class BouncyArrowProjectile : ModProjectile
 		AIType = ProjectileID.WoodenArrowFriendly;
 	}
 
-	int BouncesRemaining = 5;
+	private int _bouncesRemaining = 5;
 
 	public override bool OnTileCollide(Vector2 oldVelocity) {
-		if (BouncesRemaining > 0) {
-			BouncesRemaining--;
-
-			Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-			SoundEngine.PlaySound(SoundID.Item56 with { Volume = 0.3f }, Projectile.position);
-
-			if (Math.Abs(Projectile.velocity.X - oldVelocity.X) > float.Epsilon) {
-				Projectile.velocity.X = -oldVelocity.X;
-			}
-
-			if (Math.Abs(Projectile.velocity.Y - oldVelocity.Y) > float.Epsilon) {
-				Projectile.velocity.Y = -oldVelocity.Y;
-			}
-
-			Projectile.damage = (int)(Projectile.damage * 0.9f);
-			Projectile.velocity = Projectile.velocity * 0.9f;
-		}
-		else {
+		if (_bouncesRemaining <= 0) {
 			Projectile.Kill();
+			return true;
 		}
+		
+		_bouncesRemaining--;
+
+		Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+		SoundEngine.PlaySound(SoundID.Item56 with { Volume = 0.3f }, Projectile.position);
+
+		Projectile.velocity = Projectile.velocity.BounceOffTiles(oldVelocity, 0.9f, 0.9f);
+		Projectile.damage = (int)(Projectile.damage * 0.9f);
 
 		return false;
 	}
@@ -84,8 +77,8 @@ public class BouncyArrowProjectile : ModProjectile
 	public override void OnKill(int timeLeft) {
 		SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
-		for (int num450 = 0; num450 < 6; num450++) {
-			_ = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.EnchantedNightcrawler);
+		for (int i = 0; i < 6; i++) {
+			Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.EnchantedNightcrawler);
 		}
 	}
 }

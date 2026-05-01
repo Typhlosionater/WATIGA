@@ -50,14 +50,14 @@ public class ShimmerBulletProjectile : ModProjectile
 
 	public override void AI() {
 		if (Projectile.alpha < 250) {
-			for (int DustLoop = 0; DustLoop < 10; DustLoop++) {
-				Vector2 DustPosition = Projectile.position - (Projectile.velocity * (0.1f * DustLoop));
-				Dust TrailDust = Dust.NewDustPerfect(DustPosition, 306, Vector2.Zero, 0, Main.hslToRgb(Main.rand.NextFloat(), 1f, 0.5f), 1f + Main.rand.NextFloat() * 0.4f);
-				TrailDust.alpha = Projectile.alpha;
-				TrailDust.velocity *= 0f;
-				TrailDust.scale *= 0.8f;
-				TrailDust.noGravity = true;
-				TrailDust.rotation = Main.rand.NextFloat(0, 4);
+			for (int i = 0; i < 10; i++) {
+				Vector2 dustPosition = Projectile.position - (Projectile.velocity * (0.1f * i));
+				Dust dust = Dust.NewDustPerfect(dustPosition, DustID.SparkForLightDisc, Vector2.Zero, 0, Main.hslToRgb(Main.rand.NextFloat(), 1f, 0.5f), 1f + Main.rand.NextFloat(0.4f));
+				dust.alpha = Projectile.alpha;
+				dust.velocity *= 0f;
+				dust.scale *= 0.8f;
+				dust.noGravity = true;
+				dust.rotation = Main.rand.NextFloat(0, 4);
 			}
 		}
 	}

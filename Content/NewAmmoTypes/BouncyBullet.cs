@@ -56,33 +56,25 @@ public class BouncyBulletProjectile : ModProjectile
 		AIType = ProjectileID.Bullet;
 	}
 
-	int BouncesRemaining = 5;
+	private int _bouncesRemaining = 5;
 
 	public override void AI() {
 		Lighting.AddLight(Projectile.Center, Color.DeepPink.ToVector3() * 0.4f);
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity) {
-		if (BouncesRemaining > 0) {
-			BouncesRemaining--;
-
-			Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-			SoundEngine.PlaySound(SoundID.Item56 with { Volume = 0.3f }, Projectile.position);
-
-			if (Math.Abs(Projectile.velocity.X - oldVelocity.X) > float.Epsilon) {
-				Projectile.velocity.X = -oldVelocity.X;
-			}
-
-			if (Math.Abs(Projectile.velocity.Y - oldVelocity.Y) > float.Epsilon) {
-				Projectile.velocity.Y = -oldVelocity.Y;
-			}
-
-			Projectile.damage = (int)(Projectile.damage * 0.9f);
-			Projectile.velocity = Projectile.velocity * 0.9f;
-		}
-		else {
+		if (_bouncesRemaining <= 0) {
 			Projectile.Kill();
+			return false;
 		}
+		
+		_bouncesRemaining--;
+
+		Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+		SoundEngine.PlaySound(SoundID.Item56 with { Volume = 0.3f }, Projectile.position);
+
+		Projectile.velocity = Projectile.velocity.BounceOffTiles(oldVelocity, 0.9f, 0.9f);
+		Projectile.damage = (int)(Projectile.damage * 0.9f);
 
 		return false;
 	}

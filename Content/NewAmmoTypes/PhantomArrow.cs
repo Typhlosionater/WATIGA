@@ -66,32 +66,14 @@ public class PhantomArrowProjectile : ModProjectile
 	}
 
 	public override void AI() {
-		//Homing Stats
-		float maxDetectionRadius = 300f;
-		float rotationAmount = MathHelper.ToRadians(3f);
+		const float maxDetectionRadius = 300f;
+		const float rotationAmount = 0.052f; // 3 degrees
 
-		//homes in on enemies if friendly
-		if (Projectile.friendly) {
-			//Choose Target
-			NPC closestNPC = null;
-			float sqrMaxDetectDistance = maxDetectionRadius * maxDetectionRadius;
-			for (int i = 0; i < Main.maxNPCs; i++) {
-				NPC target = Main.npc[i];
-				if (target.CanBeChasedBy() && Collision.CanHit(Projectile.Center, 1, 1, target.Center, 1, 1)) {
-					float sqrDistanceToTarget = Vector2.DistanceSquared(target.Center, Projectile.Center);
-					if (sqrDistanceToTarget < sqrMaxDetectDistance) {
-						sqrMaxDetectDistance = sqrDistanceToTarget;
-						closestNPC = target;
-					}
-				}
-			}
-
-			//Homes in on target if applicable
-			if (closestNPC != null) {
-				float rotTarget = (closestNPC.Center - Projectile.Center).ToRotation();
-				float rotCurrent = Projectile.velocity.ToRotation();
-				Projectile.velocity = Projectile.velocity.RotatedBy(MathHelper.WrapAngle(MathHelper.WrapAngle(Utils.AngleTowards(rotCurrent, rotTarget, rotationAmount)) - Projectile.velocity.ToRotation()));
-			}
+		var closestNPC = NPCHelpers.FindClosestNPC(maxDetectionRadius, Projectile.Center);
+		if (closestNPC is not null) {
+			float rotTarget = (closestNPC.Center - Projectile.Center).ToRotation();
+			float rotCurrent = Projectile.velocity.ToRotation();
+			Projectile.velocity = Projectile.velocity.RotatedBy(MathHelper.WrapAngle(MathHelper.WrapAngle(rotCurrent.AngleTowards(rotTarget, rotationAmount)) - Projectile.velocity.ToRotation()));
 		}
 	}
 
@@ -102,13 +84,12 @@ public class PhantomArrowProjectile : ModProjectile
 	public override void OnKill(int timeLeft) {
 		SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
-		//Spawns dust on death
 		for (int i = 0; i < 8; i++) {
-			int ImpactDust = Dust.NewDust(Projectile.Center, 0, 0, DustID.DungeonSpirit);
-			Main.dust[ImpactDust].velocity *= 1.5f;
-			Main.dust[ImpactDust].scale *= 1.5f;
-			Main.dust[ImpactDust].rotation = Main.rand.NextFloat(0, 4);
-			Main.dust[ImpactDust].noGravity = true;
+			var impactDust = Dust.NewDustPerfect(Projectile.Center, DustID.DungeonSpirit);
+			impactDust.velocity *= 1.5f;
+			impactDust.scale *= 1.5f;
+			impactDust.rotation = Main.rand.NextFloat(0, 4);
+			impactDust.noGravity = true;
 		}
 	}
 }
