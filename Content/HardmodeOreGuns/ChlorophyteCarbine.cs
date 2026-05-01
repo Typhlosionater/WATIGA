@@ -1,10 +1,15 @@
 using Terraria.Audio;
 using Terraria.Enums;
+using WATIGA.Common;
 
 namespace WATIGA.Content.HardmodeOreGuns;
 
 public class ChlorophyteCarbine : ModItem
 {
+	public override bool IsLoadingEnabled(Mod mod) {
+		return ServerConfig.Instance.NewContent.HardmodeOreGuns;
+	}
+
 	public override void SetDefaults() {
 		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 6, 10f, true);
 		Item.damage = 24;
