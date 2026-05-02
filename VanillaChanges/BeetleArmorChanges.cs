@@ -18,7 +18,7 @@ public class BettleArmorRecipeChange : ModSystem
 		for (int i = 0; i < Recipe.numRecipes; i++) {
 			Recipe recipe = Main.recipe[i];
 			if (BeetleArmorPieces.Contains(recipe.createItem.type)) {
-				recipe.RemoveIngredient(ItemID.ChlorophyteHeadgear);
+				recipe.RemoveIngredient(ItemID.TurtleHelmet);
 				recipe.RemoveIngredient(ItemID.TurtleScaleMail);
 				recipe.RemoveIngredient(ItemID.TurtleLeggings);
 				if (recipe.TryGetIngredient(ItemID.BeetleHusk, out Item husks)) {
