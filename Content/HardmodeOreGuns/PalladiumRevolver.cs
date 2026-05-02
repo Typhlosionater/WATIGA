@@ -10,7 +10,10 @@ public class PalladiumRevolver : ModItem
 	}
 
 	public override void SetDefaults() {
-		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 20, 14f);
+        Item.width = 32;
+        Item.height = 16;
+
+        Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 20, 14f);
 		Item.damage = 38;
 		Item.knockBack = 4f;
 		Item.UseSound = SoundID.Item41;

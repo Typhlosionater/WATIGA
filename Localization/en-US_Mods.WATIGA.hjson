@@ -1,6 +1,7 @@
 Common: {
 	IncreaseWhipSpeed: Increases whip speed by {0:P0}
 	IncreaseWhipRange: Increases whip range by {0:P0}
+	DamageReduction: "{0:P0} damage reduction"
 }
 
 VanillaChanges.TikiSetBonus: Increases whip range and speed by 20%
@@ -51,7 +52,7 @@ Items: {
 		DisplayName: Spellweave Scarf
 		Tooltip:
 			'''
-			Grants a Runic Ward that has a chance to block attacks
+			Gants a Runic Ward that has a chance to block attacks
 			Taking damage increases this chance by 10% and blocking an attack resets it to 0%
 			'''
 	}

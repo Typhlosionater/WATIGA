@@ -11,7 +11,9 @@ public class ChlorophyteCarbine : ModItem
 	}
 
 	public override void SetDefaults() {
-		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 5, 13f, true);
+        Item.width = 62;
+        Item.height = 22;
+        Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 5, 13f, true);
 		Item.damage = 40;
 		Item.knockBack = 2f;
 		Item.useAnimation = 4 * Item.useTime;
