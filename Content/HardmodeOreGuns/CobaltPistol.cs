@@ -10,12 +10,12 @@ public class CobaltPistol : ModItem
 	}
 
 	public override void SetDefaults() {
-		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 28, 9f);
-		Item.damage = 38;
-		Item.knockBack = 5f;
-		Item.UseSound = SoundID.Item11;
+		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 18, 13f);
+		Item.damage = 35;
+		Item.knockBack = 3.5f;
+		Item.UseSound = SoundID.Item41;
 
-		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 1, silver: 10));
+		Item.SetShopValues(ItemRarityColor.LightRed4, Item.sellPrice(gold: 1, silver: 38));
 	}
 
 	public override void AddRecipes() {
@@ -32,6 +32,9 @@ public class CobaltPistol : ModItem
     public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
 		Vector2 normal = velocity.RotatedBy(Consts.PiOver2).Normalized();
 		position += normal * 6f;
-    }
+
+		//inaccuracy
+		velocity = velocity.RotatedByRandom(MathHelper.ToRadians(1f));
+	}
 }
 

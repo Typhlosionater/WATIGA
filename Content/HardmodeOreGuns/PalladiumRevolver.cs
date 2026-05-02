@@ -10,12 +10,12 @@ public class PalladiumRevolver : ModItem
 	}
 
 	public override void SetDefaults() {
-		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 35, 9.5f);
-		Item.damage = 47;
-		Item.knockBack = 6f;
-		Item.UseSound = SoundID.Item11;
+		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 20, 14f);
+		Item.damage = 38;
+		Item.knockBack = 4f;
+		Item.UseSound = SoundID.Item41;
 
-		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 1, silver: 20));
+		Item.SetShopValues(ItemRarityColor.LightRed4, Item.sellPrice(gold: 1, silver: 84));
 	}
 
 	public override void AddRecipes() {
@@ -32,6 +32,9 @@ public class PalladiumRevolver : ModItem
     public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
 		Vector2 normal = velocity.RotatedBy(Consts.PiOver2).Normalized();
 		position += normal * 6f;
-    }
+
+		//inaccuracy
+		velocity = velocity.RotatedByRandom(MathHelper.ToRadians(1f));
+	}
 }
 

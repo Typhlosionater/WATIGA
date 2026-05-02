@@ -247,13 +247,27 @@ Items: {
 	}
 
 	ChlorophyteCarbine: {
-		Tooltip: ""
 		DisplayName: Chlorophyte Carbine
+		Tooltip:
+			'''
+			Four round burst
+			Only the first shot consumes ammo
+			'''
 	}
 
 	CarapaceBullet: {
 		DisplayName: Carapace Bullet
 		Tooltip: ""
+	}
+
+	AdamantiteRifle: {
+		DisplayName: Adamantite Rifle
+		Tooltip: Shoots a powerful, high velocity bullet
+	}
+
+	TitaniumSniper: {
+		DisplayName: Titanium Sniper
+		Tooltip: Shoots a powerful, high velocity bullet
 	}
 }
 

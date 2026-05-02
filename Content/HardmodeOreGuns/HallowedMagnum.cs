@@ -10,13 +10,13 @@ public class HallowedMagnum : ModItem
 	}
 
 	public override void SetDefaults() {
-		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 9, 9f);
+		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 10, 10f);
 		Item.damage = 36;
 		Item.crit = 4;
-		Item.knockBack = 5.5f;
-		Item.UseSound = SoundID.Item11;
+		Item.knockBack = 5f;
+		Item.UseSound = SoundID.Item36;
 
-		Item.SetShopValues(ItemRarityColor.Pink5, Item.buyPrice(gold: 4, silver: 60));
+		Item.SetShopValues(ItemRarityColor.Pink5, Item.sellPrice(gold: 4, silver: 60));
 	}
 
 	public override void AddRecipes() {
@@ -33,6 +33,9 @@ public class HallowedMagnum : ModItem
     public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
 		Vector2 normal = velocity.RotatedBy(Consts.PiOver2).Normalized();
 		position += normal * 6f;
+
+		//inaccuracy
+		velocity = velocity.RotatedByRandom(MathHelper.ToRadians(1f));
 
 		if (type == ProjectileID.Bullet) {
 			type = ProjectileID.BulletHighVelocity;

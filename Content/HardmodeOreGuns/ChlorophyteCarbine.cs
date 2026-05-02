@@ -11,14 +11,14 @@ public class ChlorophyteCarbine : ModItem
 	}
 
 	public override void SetDefaults() {
-		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 6, 10f, true);
-		Item.damage = 24;
-		Item.knockBack = 3.5f;
-		Item.useAnimation = 3 * Item.useTime;
-		Item.reuseDelay = 6;
+		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 5, 13f, true);
+		Item.damage = 40;
+		Item.knockBack = 2f;
+		Item.useAnimation = 4 * Item.useTime;
+		Item.reuseDelay = 20;
 		Item.consumeAmmoOnFirstShotOnly = true;
 
-		Item.SetShopValues(ItemRarityColor.Lime7, Item.buyPrice(gold: 4, silver: 80));
+		Item.SetShopValues(ItemRarityColor.Lime7, Item.sellPrice(gold: 5, silver: 52));
 	}
 
 	public override void AddRecipes() {
@@ -41,6 +41,9 @@ public class ChlorophyteCarbine : ModItem
     public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
 		Vector2 normal = velocity.RotatedBy(Consts.PiOver2).Normalized();
 		position += normal * 4f;
-    }
+
+		//inaccuracy
+		velocity = velocity.RotatedByRandom(MathHelper.ToRadians(2f));
+	}
 }
 
