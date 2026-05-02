@@ -1,3 +1,5 @@
+Common.IncreaseWhipSpeed: Increases whip speed by {0:P0}
+
 Items: {
 	TopazCharm: {
 		DisplayName: Topaz Charm
