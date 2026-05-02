@@ -26,6 +26,10 @@ public class StardustHelmetWhipAttackSpeed : GlobalItem
 		return entity.type is ItemID.StardustHelmet;
     }
 
+    public override void SetDefaults(Item entity) {
+		entity.StatsModifiedBy.Add(Mod);
+    }
+
     public override void UpdateEquip(Item item, Player player) {
 		player.GetAttackSpeed(DamageClass.SummonMeleeSpeed) += WhipAttackSpeed;
     }

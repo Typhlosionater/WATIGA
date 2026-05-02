@@ -35,6 +35,10 @@ public class TikiShirtChanges : GlobalItem
 		return entity.type is ItemID.TikiShirt;
     }
 
+    public override void SetDefaults(Item entity) {
+		entity.StatsModifiedBy.Add(Mod);
+    }
+
     public override void UpdateEquip(Item item, Player player) {
 		player.GetAttackSpeed(DamageClass.SummonMeleeSpeed) += WhipAttackSpeed;
     }
@@ -60,6 +64,10 @@ public class TikiPantsChanges : GlobalItem
 
     public override bool AppliesToEntity(Item entity, bool lateInstantiation) {
 		return entity.type is ItemID.TikiPants;
+    }
+
+    public override void SetDefaults(Item entity) {
+		entity.StatsModifiedBy.Add(Mod);
     }
 
     public override void UpdateEquip(Item item, Player player) {
