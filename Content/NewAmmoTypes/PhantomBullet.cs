@@ -16,7 +16,7 @@ public class PhantomBullet : ModItem
 	public override void SetDefaults() {
 		Item.width = 12;
 		Item.height = 12;
-		Item.value = Item.sellPrice(0, 0, 0, 8);
+		Item.value = Item.sellPrice(0, 0, 0, 10);
 		Item.rare = ItemRarityID.Yellow;
 		Item.maxStack = Item.CommonMaxStack;
 		Item.consumable = true;

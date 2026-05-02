@@ -16,7 +16,7 @@ public class PhantomArrow : ModItem
 	public override void SetDefaults() {
 		Item.width = 14;
 		Item.height = 34;
-		Item.value = Item.sellPrice(0, 0, 0, 8);
+		Item.value = Item.sellPrice(0, 0, 0, 20);
 		Item.rare = ItemRarityID.Yellow;
 		Item.maxStack = Item.CommonMaxStack;
 		Item.consumable = true;

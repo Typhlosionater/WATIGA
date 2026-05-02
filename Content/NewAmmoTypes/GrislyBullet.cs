@@ -68,9 +68,9 @@ public class GrislyBulletProjectile : ModProjectile
 			Vector2 val = target.Hitbox.ClosestPointInRect(Main.player[Projectile.owner].MountedCenter) + v;
 			Vector2 spinningpoint = (target.Center - val) * 0.8f;
 			spinningpoint = spinningpoint.RotatedBy(Main.rand.NextFloatDirection() * (float)Math.PI * 0.25f);
-			int num = Projectile.NewProjectile(Projectile.GetSource_FromThis(), val.X, val.Y, spinningpoint.X, spinningpoint.Y, 975, Projectile.damage, Projectile.knockBack, Projectile.owner, 1f, target.whoAmI);
+			int num = Projectile.NewProjectile(Projectile.GetSource_FromThis(), val.X, val.Y, spinningpoint.X, spinningpoint.Y, ProjectileID.BloodButcherer, Projectile.damage, Projectile.knockBack, Projectile.owner, 1f, target.whoAmI);
 			Main.projectile[num].StatusNPC(target.whoAmI);
-			//Projectile.KillOldestJavelin(num, 975, target.whoAmI, Main.player[Projectile.owner]._bloodButchererMax5);
+			Projectile.KillOldestJavelin(num, ProjectileID.BloodButcherer, target.whoAmI, (Point[])(object)new Point[5]);
 		}
 	}
 

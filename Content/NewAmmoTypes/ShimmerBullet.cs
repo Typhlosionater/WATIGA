@@ -1,4 +1,5 @@
 using Terraria.Audio;
+using Terraria.GameContent.Drawing;
 using WATIGA.Common;
 
 namespace WATIGA.Content.NewAmmoTypes;
@@ -64,5 +65,10 @@ public class ShimmerBulletProjectile : ModProjectile
 
 	public override void OnKill(int timeLeft) {
 		SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+
+		ParticleOrchestrator.RequestParticleSpawn(clientOnly: true, ParticleOrchestraType.SilverBulletSparkle, new ParticleOrchestraSettings {
+			PositionInWorld = Projectile.Center,
+			MovementVector = Vector2.Zero
+		}, Projectile.owner);
 	}
 }

@@ -131,6 +131,11 @@ Items: {
 		Tooltip: Seeks out enemies
 	}
 
+	CarapaceArrow: {
+		DisplayName: Carapace Arrow
+		Tooltip: Produces beetles on impact
+	}
+
 	PiercingPotion: {
 		DisplayName: Piercing Potion
 		Tooltip: Increases armor penetration by 8
@@ -245,16 +250,21 @@ Items: {
 		Tooltip: ""
 		DisplayName: Chlorophyte Carbine
 	}
+
+	CarapaceBullet: {
+		DisplayName: Carapace Bullet
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
 	SpellweaveScarfOrbital.DisplayName: Spellweave Scarf
-	EradicationDriveChainsaw.DisplayName: Eradication Drive Chainsaw
-	EradicationDrivePincer.DisplayName: Eradication Drive Pincer
-	EradicationDriveCannon.DisplayName: Eradication Drive Cannon
-	EradicationDriveCannonball.DisplayName: Eradication Drive Cannonball
-	EradicationDriveLaser.DisplayName: Eradication Drive Laser
-	EradicationDriveLaserProjectile.DisplayName: Eradication Drive Laser Projectile
+	EradicationDriveChainsaw.DisplayName: Prime Saw
+	EradicationDrivePincer.DisplayName: Prime Pincer
+	EradicationDriveCannon.DisplayName: Prime Cannon
+	EradicationDriveCannonball.DisplayName: Prime Cannonball
+	EradicationDriveLaser.DisplayName: Prime Lasergun
+	EradicationDriveLaserProjectile.DisplayName: Prime Laser
 	BouncyBulletProjectile.DisplayName: Bouncy Bullet
 	PhantomBulletProjectile.DisplayName: Phantom Bullet
 	ShadeRoundProjectile.DisplayName: Shade Round
@@ -262,7 +272,10 @@ Projectiles: {
 	BouncyArrowProjectile.DisplayName: Bouncy Arrow
 	ShimmerBulletProjectile.DisplayName: Shimmer Bullet
 	PhantomArrowProjectile.DisplayName: Phantom Arrow
-	AlphaCentauriProjectile.DisplayName: Alpha Centauri Projectile
+	AlphaCentauriProjectile.DisplayName: Alpha Centauri
+	CarapaceArrowProjectile.DisplayName: Carapace Arrow
+	CarapaceArrowBeetleProjectile.DisplayName: Beetle Swarmer
+	CarapaceBulletProjectile.DisplayName: Carapace Bullet
 }
 
 Buffs: {
