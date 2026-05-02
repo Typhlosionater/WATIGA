@@ -1,4 +1,9 @@
-Common.IncreaseWhipSpeed: Increases whip speed by {0:P0}
+Common: {
+	IncreaseWhipSpeed: Increases whip speed by {0:P0}
+	IncreaseWhipRange: Increases whip range by {0:P0}
+}
+
+VanillaChanges.TikiSetBonus: Increases whip range and speed by 20%
 
 Items: {
 	TopazCharm: {

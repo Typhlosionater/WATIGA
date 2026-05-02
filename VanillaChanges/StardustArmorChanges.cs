@@ -33,7 +33,7 @@ public class StardustHelmetWhipAttackSpeed : GlobalItem
     public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
 		int index = tooltips.FindLastIndex(tip => tip.Mod == "Terraria" && tip.Name.StartsWith("Tooltip"));
 		if (index < 0) {
-			WATIGA.WATIGA.Instance.Logger.Error("Couldn't find insertion point for stardust helmet whip attack speed tooltip");
+			Mod.Logger.Error("Couldn't find insertion point for stardust helmet whip attack speed tooltip");
 			return;
 		}
 
