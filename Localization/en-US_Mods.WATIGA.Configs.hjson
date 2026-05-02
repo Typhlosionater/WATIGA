@@ -118,6 +118,11 @@ VanillaReworksPage: {
 		Label: Wood Greaves Change
 		Tooltip: ""
 	}
+
+	CoinGunChange: {
+		Label: Coin Gun Change
+		Tooltip: ""
+	}
 }
 
 RecipeTweaksPage: {
