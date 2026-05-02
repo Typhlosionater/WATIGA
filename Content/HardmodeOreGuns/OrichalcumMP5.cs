@@ -10,6 +10,8 @@ public class OrichalcumMP5 : ModItem
 	}
 
 	public override void SetDefaults() {
+		Item.width = 42;
+		Item.height = 22;
 		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 16, 10f, true);
 		Item.damage = 32;
 		Item.knockBack = 3.5f;

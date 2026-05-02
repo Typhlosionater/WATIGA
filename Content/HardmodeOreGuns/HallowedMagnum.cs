@@ -10,6 +10,8 @@ public class HallowedMagnum : ModItem
 	}
 
 	public override void SetDefaults() {
+		Item.width = 48;
+		Item.height = 26;
 		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 9, 9f);
 		Item.damage = 36;
 		Item.crit = 4;

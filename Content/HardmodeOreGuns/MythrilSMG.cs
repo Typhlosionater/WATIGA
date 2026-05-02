@@ -10,6 +10,8 @@ public class MythrilSMG : ModItem
 	}
 
 	public override void SetDefaults() {
+		Item.width = 52;
+		Item.height = 22;
 		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 12, 10f, true);
 		Item.damage = 24;
 		Item.knockBack = 3.5f;

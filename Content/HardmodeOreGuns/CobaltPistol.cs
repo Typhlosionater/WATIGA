@@ -10,6 +10,8 @@ public class CobaltPistol : ModItem
 	}
 
 	public override void SetDefaults() {
+		Item.width = 32;
+		Item.height = 18;
 		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 28, 9f);
 		Item.damage = 38;
 		Item.knockBack = 5f;
