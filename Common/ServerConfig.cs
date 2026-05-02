@@ -87,6 +87,10 @@ public class ServerConfig : ModConfig
 
 		[DefaultValue(true)]
 		[ReloadRequired]
+		public bool WoodGreavesChange = true;
+
+		[DefaultValue(true)]
+		[ReloadRequired]
 		public bool PotionChanges = true;
 
 		[DefaultValue(true)]
