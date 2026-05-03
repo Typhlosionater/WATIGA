@@ -270,6 +270,15 @@ Items: {
 		DisplayName: Titanium Sniper
 		Tooltip: Shoots a powerful, high velocity bullet
 	}
+
+	GaussCannon: {
+		DisplayName: Gauss Cannon
+		Tooltip:
+			'''
+			Fires ludicrously fast plasma rockets
+			50% chance to not consume ammo
+			'''
+	}
 }
 
 Projectiles: {
@@ -291,6 +300,18 @@ Projectiles: {
 	CarapaceArrowProjectile.DisplayName: Carapace Arrow
 	CarapaceArrowBeetleProjectile.DisplayName: Beetle Swarmer
 	CarapaceBulletProjectile.DisplayName: Carapace Bullet
+	PlasmaRocketI.DisplayName: Plasma Rocket I
+	PlasmaRocketII.DisplayName: Plasma Rocket I I
+	PlasmaRocketIII.DisplayName: Plasma Rocket I I I
+	PlasmaRocketIV.DisplayName: Plasma Rocket I V
+	PlasmaMiniNukeI.DisplayName: Plasma Mini Nuke I
+	PlasmaMiniNukeII.DisplayName: Plasma Mini Nuke I I
+	PlasmaClusterI.DisplayName: Plasma Cluster I
+	PlasmaClusterII.DisplayName: Plasma Cluster I I
+	PlasmaRocketDry.DisplayName: Plasma Rocket Dry
+	PlasmaRocketHoney.DisplayName: Plasma Rocket Honey
+	PlasmaRocketLava.DisplayName: Plasma Rocket Lava
+	PlasmaRocketWet.DisplayName: Plasma Rocket Wet
 }
 
 Buffs: {
