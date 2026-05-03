@@ -52,7 +52,7 @@ Items: {
 		DisplayName: Spellweave Scarf
 		Tooltip:
 			'''
-			Gants a Runic Ward that has a chance to block attacks
+			Grants a Runic Ward that has a chance to block attacks
 			Taking damage increases this chance by 10% and blocking an attack resets it to 0%
 			'''
 	}

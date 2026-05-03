@@ -25,8 +25,7 @@ public class RubyCharm : ModItem
 		CreateRecipe()
 			.AddIngredient(ItemID.Chain, 2)
 			.AddIngredient(ItemID.Ruby, 8)
-			.AddTile(TileID.Tables)
-			.AddTile(TileID.Chairs)
+			.AddTile(TileID.WorkBenches)
 			.Register();
 	}
 }

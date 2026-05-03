@@ -25,8 +25,7 @@ public class AmethystCharm : ModItem
 		CreateRecipe()
 			.AddIngredient(ItemID.Chain, 2)
 			.AddIngredient(ItemID.Amethyst, 8)
-			.AddTile(TileID.Tables)
-			.AddTile(TileID.Chairs)
+			.AddTile(TileID.WorkBenches)
 			.Register();
 	}
 }

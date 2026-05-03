@@ -25,8 +25,7 @@ public class TopazCharm : ModItem
 		CreateRecipe()
 			.AddIngredient(ItemID.Chain, 2)
 			.AddIngredient(ItemID.Topaz, 8)
-			.AddTile(TileID.Tables)
-			.AddTile(TileID.Chairs)
+			.AddTile(TileID.WorkBenches)
 			.Register();
 	}
 }

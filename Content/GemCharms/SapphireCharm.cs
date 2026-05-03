@@ -25,8 +25,7 @@ public class SapphireCharm : ModItem
 		CreateRecipe()
 			.AddIngredient(ItemID.Chain, 2)
 			.AddIngredient(ItemID.Sapphire, 8)
-			.AddTile(TileID.Tables)
-			.AddTile(TileID.Chairs)
+			.AddTile(TileID.WorkBenches)
 			.Register();
 	}
 }

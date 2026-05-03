@@ -13,7 +13,7 @@ public class HallowedMagnum : ModItem
         Item.width = 48;
         Item.height = 26;
 
-        Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 10, 10f);
+        Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 10, 12f);
 		Item.damage = 36;
 		Item.crit = 4;
 		Item.knockBack = 5f;
