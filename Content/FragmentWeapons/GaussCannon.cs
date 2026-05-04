@@ -29,7 +29,7 @@ public class GaussCannon : ModItem
 			{ ItemID.RocketIII, ModContent.ProjectileType<PlasmaRocketIII>() },
 			{ ItemID.RocketIV, ModContent.ProjectileType<PlasmaRocketIV>() },
 			{ ItemID.ClusterRocketI, ModContent.ProjectileType<PlasmaClusterI>() },
-			{ ItemID.ClusterRocketII, ModContent.ProjectileType<PlasmaClusterI>() },
+			{ ItemID.ClusterRocketII, ModContent.ProjectileType<PlasmaClusterII>() },
 			{ ItemID.MiniNukeI, ModContent.ProjectileType<PlasmaMiniNukeI>() },
 			{ ItemID.MiniNukeII, ModContent.ProjectileType<PlasmaMiniNukeII>() },
 			{ ItemID.WetRocket, ModContent.ProjectileType<PlasmaRocketWet>() },
@@ -42,13 +42,13 @@ public class GaussCannon : ModItem
 	public override void SetDefaults() {
 		Item.width = 68;
 		Item.height = 26;
-		Item.DefaultToRangedWeapon(ProjectileID.RocketI, AmmoID.Rocket, 20, 12f, true);
-		Item.damage = 100;
-		Item.knockBack = 4f;
-		Item.UseSound = SoundID.Item11;
+		Item.DefaultToRangedWeapon(ProjectileID.RocketI, AmmoID.Rocket, 25, 12f, true);
+		Item.damage = 90;
+		Item.knockBack = 5f;
+		Item.UseSound = SoundID.Item92;
 		Item.glowMask = Glowmask.GaussCannonGlowmaskID;
 
-		Item.SetShopValues(ItemRarityColor.StrongRed10, Item.buyPrice(gold: 10));
+		Item.SetShopValues(ItemRarityColor.StrongRed10, Item.sellPrice(gold: 10));
 	}
 
 	public override void AddRecipes() {
@@ -59,11 +59,7 @@ public class GaussCannon : ModItem
 	}
 
     public override Vector2? HoldoutOffset() {
-		return new Vector2(-20f, 0f);
-    }
-
-    public override bool CanConsumeAmmo(Item ammo, Player player) {
-		return Main.rand.NextBool();
+		return new Vector2(-15f, 0f);
     }
 }
 
@@ -94,7 +90,7 @@ public abstract class BaseGaussCannonProjectile : ModProjectile
 		ProjectileID.Sets.Explosive[Type] = true;
 		ProjectileID.Sets.RocketsSkipDamageForPlayers[Type] = true;
 
-        ProjectileID.Sets.TrailCacheLength[Type] = 10;
+        ProjectileID.Sets.TrailCacheLength[Type] = 15;
         ProjectileID.Sets.TrailingMode[Type] = 5;
     }
 
@@ -105,7 +101,10 @@ public abstract class BaseGaussCannonProjectile : ModProjectile
 		Projectile.penetrate = -1;
 		Projectile.DamageType = DamageClass.Ranged;
 		Projectile.extraUpdates = 4;
-    }
+
+		Projectile.usesLocalNPCImmunity = true;
+		Projectile.localNPCHitCooldown = 10;
+	}
 
     public override void AI() {
 		if (Projectile.owner == Main.myPlayer && Projectile.timeLeft <= 3) {
@@ -207,13 +206,26 @@ public abstract class BaseGaussCannonProjectile : ModProjectile
 			Projectile.ExplodeTiles(Projectile.Center, blastRadius, minTileX, maxTileX, minTileY, maxTileY, wallSplode);
 		}
 
-		if (IsCluster) {
+		if (IsCluster && DestroyTileRange is not null) {
+			float angleOffset = Main.rand.NextRadian();
+			for (float i = 0f; i < 1f; i += 1f / 6f) {
+				float angle = angleOffset + (i * TwoPi);
+				var velocity = angle.ToRotationVector2() * Main.rand.NextFloat(4f, 6f);
+				var fragment = Projectile.NewProjectileDirect(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ProjectileID.ClusterFragmentsII, Projectile.damage / 2, 0f);
+				fragment.timeLeft -= Main.rand.Next(30);
+				fragment.usesLocalNPCImmunity = true;
+				fragment.localNPCHitCooldown = -1;
+			}
+		}
+		else if (IsCluster) {
 			float angleOffset = Main.rand.NextRadian();
 			for (float i = 0f; i < 1f; i += 1f / 6f) {
 				float angle = angleOffset + (i * TwoPi);
 				var velocity = angle.ToRotationVector2() * Main.rand.NextFloat(4f, 6f);
 				var fragment = Projectile.NewProjectileDirect(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ProjectileID.ClusterFragmentsI, Projectile.damage / 2, 0f);
 				fragment.timeLeft -= Main.rand.Next(30);
+				fragment.usesLocalNPCImmunity = true;
+				fragment.localNPCHitCooldown = -1;
 			}
 		}
 
@@ -262,14 +274,14 @@ public abstract class BaseGaussCannonProjectile : ModProjectile
 
 public class PlasmaRocketI : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 128;
+    protected override int BlastSize => 64;
 
     protected override float BlastKnockback => 8f;
 }
 
 public class PlasmaRocketII : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 128;
+    protected override int BlastSize => 64;
 
     protected override float BlastKnockback => 8f;
 
@@ -278,14 +290,14 @@ public class PlasmaRocketII : BaseGaussCannonProjectile
 
 public class PlasmaRocketIII : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 200;
+    protected override int BlastSize => 100;
 
     protected override float BlastKnockback => 10f;
 }
 
 public class PlasmaRocketIV : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 200;
+    protected override int BlastSize => 100;
 
     protected override float BlastKnockback => 10f;
 
@@ -295,14 +307,14 @@ public class PlasmaRocketIV : BaseGaussCannonProjectile
 
 public class PlasmaMiniNukeI : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 250;
+    protected override int BlastSize => 125;
 
     protected override float BlastKnockback => 12f;
 }
 
 public class PlasmaMiniNukeII : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 250;
+    protected override int BlastSize => 125;
 
     protected override float BlastKnockback => 12f;
 
@@ -311,7 +323,7 @@ public class PlasmaMiniNukeII : BaseGaussCannonProjectile
 
 public class PlasmaClusterI : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 128;
+    protected override int BlastSize => 64;
 
     protected override float BlastKnockback => 8f;
 
@@ -320,7 +332,7 @@ public class PlasmaClusterI : BaseGaussCannonProjectile
 
 public class PlasmaClusterII : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 128;
+    protected override int BlastSize => 64;
 
     protected override float BlastKnockback => 8f;
 
@@ -331,7 +343,7 @@ public class PlasmaClusterII : BaseGaussCannonProjectile
 
 public class PlasmaRocketWet : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 128;
+    protected override int BlastSize => 24;
 
     protected override float BlastKnockback => 8f;
 
@@ -340,7 +352,7 @@ public class PlasmaRocketWet : BaseGaussCannonProjectile
 
 public class PlasmaRocketLava : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 128;
+    protected override int BlastSize => 24;
 
     protected override float BlastKnockback => 8f;
 
@@ -349,7 +361,7 @@ public class PlasmaRocketLava : BaseGaussCannonProjectile
 
 public class PlasmaRocketHoney : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 128;
+    protected override int BlastSize => 24;
 
     protected override float BlastKnockback => 8f;
 
@@ -358,7 +370,7 @@ public class PlasmaRocketHoney : BaseGaussCannonProjectile
 
 public class PlasmaRocketDry : BaseGaussCannonProjectile
 {
-    protected override int BlastSize => 128;
+    protected override int BlastSize => 24;
 
     protected override float BlastKnockback => 8f;
 

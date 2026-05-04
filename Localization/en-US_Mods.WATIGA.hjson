@@ -276,7 +276,7 @@ Items: {
 		Tooltip:
 			'''
 			Fires ludicrously fast plasma rockets
-			50% chance to not consume ammo
+			Does extra damage on a direct hit
 			'''
 	}
 }

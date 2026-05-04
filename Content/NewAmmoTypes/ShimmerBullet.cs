@@ -1,8 +1,5 @@
 using System;
 using System.Runtime.CompilerServices;
-using Microsoft.Xna.Framework.Graphics.PackedVector;
-using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Renderers;
 using WATIGA.Common;
@@ -90,12 +87,12 @@ public class ShimmerBulletProjectile : ModProjectile
 		prettySparkleParticle.AccelerationPerFrame = Vector2.Zero;
 		prettySparkleParticle.Velocity = Projectile.oldVelocity.Normalized() * 60;
 		prettySparkleParticle.ColorTint = colorTint;
-		prettySparkleParticle.LocalPosition = projOrigin;
+		prettySparkleParticle.LocalPosition = projOrigin + (Projectile.oldVelocity.Normalized() * 20 * (1/streakLifeMultiplier));
 		prettySparkleParticle.Rotation = Projectile.oldVelocity.ToRotation();
 		prettySparkleParticle.Scale = scale;
 		prettySparkleParticle.FadeInNormalizedTime = 5E-06f;
 		prettySparkleParticle.FadeOutNormalizedTime = 0.95f;
-		prettySparkleParticle.FadeInEnd = (float)Math.Truncate(10f * streakLifeMultiplier);
+		prettySparkleParticle.FadeInEnd = (float)Math.Truncate(5f * streakLifeMultiplier);
 		prettySparkleParticle.FadeOutStart = (float)Math.Truncate(25f * streakLifeMultiplier);
 		prettySparkleParticle.FadeOutEnd = (float)Math.Truncate(30f * streakLifeMultiplier);
 		prettySparkleParticle.TimeToLive = (float)Math.Truncate(30f * streakLifeMultiplier);
