@@ -12,6 +12,7 @@ public class Assets : ILoadable
 		Effects.Glitch = mod.Assets.Request<Effect>("Assets/Effects/Glitch");
 		Effects.MetaballIsosurface = mod.Assets.Request<Effect>("Assets/Effects/MetaballIsosurface");
 		Effects.MetaballOutline = mod.Assets.Request<Effect>("Assets/Effects/MetaballOutline");
+		Effects.NebulaSceptreMetaball = mod.Assets.Request<Effect>("Assets/Effects/NebulaSceptreMetaball");
 	}
 
 	public void Unload() { }
@@ -32,5 +33,6 @@ public class Assets : ILoadable
 		public static Asset<Effect> Glitch;
 		public static Asset<Effect> MetaballIsosurface;
 		public static Asset<Effect> MetaballOutline;
+		public static Asset<Effect> NebulaSceptreMetaball;
 	}
 }

@@ -1,3 +1,4 @@
+using System.Linq;
 using FishUtils.DataStructures;
 
 namespace WATIGA.Common.Metaballs;
@@ -7,7 +8,7 @@ public abstract class MetaballGroupHandler : ILoadable
 	public const int MaxMetaballsPerGroup = 2000;
 
 	public Metaball[] Metaballs = new Metaball[MaxMetaballsPerGroup];
-	public bool Dirty = false;
+	public bool NeedsSorting = false;
 
 	public static Texture2D MaskTexture {
 		get => Assets.Textures.MetaballMask.Value;
@@ -16,6 +17,10 @@ public abstract class MetaballGroupHandler : ILoadable
 	public void Load(Mod mod) { }
 
 	public void Unload() { }
+
+	public bool ShouldDraw() {
+		return Metaballs.Any(m => m.Active);
+	}
 
 	public static void NewMetaball<THandler>(Metaball metaball) where THandler : MetaballGroupHandler {
 		THandler handler = ModContent.GetInstance<THandler>();
@@ -37,14 +42,14 @@ public abstract class MetaballGroupHandler : ILoadable
 		metaball.Active = true;
 		metaballs[index!.Value] = metaball;
 
-		handler.Dirty = true;
+		handler.NeedsSorting = true;
 	}
 
 	public abstract void Update();
 
 	public virtual void DrawMetaballs() {
 		foreach (Metaball metaball in Metaballs) {
-			if (!metaball.Active) {
+			if (!metaball.Active || !metaball.OnScreen()) {
 				continue;
 			}
 

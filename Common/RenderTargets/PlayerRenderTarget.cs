@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -162,5 +163,10 @@ class PlayerRenderTarget : ILoadable
 		Ready = true;
 	}
 
-	public void Unload() { }
+	public void Unload() {
+		Main.QueueMainThreadAction(() => {
+			Target?.Dispose();
+			Target = null;
+		});
+	}
 }

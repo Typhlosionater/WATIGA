@@ -9,4 +9,8 @@ public struct Metaball()
 	public Color Color = Color.White;
 	public bool Active = false;
 	public object CustomData = null;
+
+	public bool OnScreen() {
+		return Position.OnScreen(120);
+	}
 }
