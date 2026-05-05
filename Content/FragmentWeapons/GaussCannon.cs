@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.Enums;
-using Terraria.GameContent;
 using Terraria.Graphics;
 using Terraria.Graphics.Shaders;
 
@@ -10,18 +8,6 @@ namespace WATIGA.Content.FragmentWeapons;
 
 public class GaussCannon : ModItem
 {
-	[ReinitializeDuringResizeArrays]
-	public static class Glowmask
-	{
-		public static short GaussCannonGlowmaskID;	
-
-		static Glowmask() {
-			GaussCannonGlowmaskID = (short)TextureAssets.GlowMask.Length;
-			Array.Resize(ref TextureAssets.GlowMask, TextureAssets.GlowMask.Length + 1);
-			TextureAssets.GlowMask[GaussCannonGlowmaskID] = ModContent.Request<Texture2D>($"{nameof(WATIGA)}/Content/FragmentWeapons/GaussCannonGlow");
-		}
-	}
-
 	public override void SetStaticDefaults() {
 		AmmoID.Sets.SpecificLauncherAmmoProjectileMatches.Add(Type, new Dictionary<int, int> {
 			{ ItemID.RocketI, ModContent.ProjectileType<PlasmaRocketI>() },
@@ -42,11 +28,11 @@ public class GaussCannon : ModItem
 	public override void SetDefaults() {
 		Item.width = 68;
 		Item.height = 26;
-		Item.DefaultToRangedWeapon(ProjectileID.RocketI, AmmoID.Rocket, 20, 12f, true);
-		Item.damage = 100;
-		Item.knockBack = 4f;
-		Item.UseSound = SoundID.Item11;
-		Item.glowMask = Glowmask.GaussCannonGlowmaskID;
+
+		Item.DefaultToRangedWeapon(ProjectileID.RocketI, AmmoID.Rocket, 25, 12f, true);
+		Item.damage = 90;
+		Item.knockBack = 5f;
+		Item.UseSound = SoundID.Item92;
 
 		Item.SetShopValues(ItemRarityColor.StrongRed10, Item.buyPrice(gold: 10));
 	}

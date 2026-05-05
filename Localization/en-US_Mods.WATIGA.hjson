@@ -219,7 +219,7 @@ Items: {
 
 	AlphaCentauri: {
 		DisplayName: Alpha Centauri
-		Tooltip: ""
+		Tooltip: "'Wreak havoc in binary fashion'"
 	}
 
 	CobaltPistol: {
@@ -275,9 +275,15 @@ Items: {
 		DisplayName: Gauss Cannon
 		Tooltip:
 			'''
-			Fires ludicrously fast plasma rockets
+			Does extra damage on a direct hit
 			50% chance to not consume ammo
+			'Decimate your enemies with plasma rockets!'
 			'''
+	}
+
+	NebulaSceptre: {
+		DisplayName: Nebula Scepter
+		Tooltip: "'Harness bolts of dark energy to smite your foes'"
 	}
 }
 
@@ -312,6 +318,7 @@ Projectiles: {
 	PlasmaRocketHoney.DisplayName: Plasma Rocket Honey
 	PlasmaRocketLava.DisplayName: Plasma Rocket Lava
 	PlasmaRocketWet.DisplayName: Plasma Rocket Wet
+	NebulaSceptreProjectile.DisplayName: Nebula Sceptre Projectile
 }
 
 Buffs: {

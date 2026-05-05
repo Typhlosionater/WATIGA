@@ -5,12 +5,13 @@ using FishUtils.DataStructures;
 
 namespace WATIGA.Common.Metaballs;
 
-public class MetaballGroupManager : ModSystem, IDisposable
+public class MetaballGroupManager : ModSystem
 {
 	public static MetaballGroupHandler[] MetaballGroupHandlers;
 
 	private static RenderTarget2D _metaballRenderTarget;
 	private static RenderTarget2D _isosurfaceRenderTarget;
+	private static RenderTarget2D _isosurfaceRenderTarget2;
 	private static readonly Dictionary<MetaballGroupHandler, RenderTarget2D> GroupToFinalTarget = new();
 
 	public override void Load() {
@@ -18,6 +19,17 @@ public class MetaballGroupManager : ModSystem, IDisposable
 		Main.OnResolutionChanged += resolution => ResizeTargets(resolution.ToPoint());
 		On_Main.DrawDust += DrawMetaballTargetToScreen;
 	}
+
+    public override void Unload() {
+		Main.QueueMainThreadAction(() => {
+			_metaballRenderTarget?.Dispose();
+			_metaballRenderTarget = null;
+			_isosurfaceRenderTarget?.Dispose();
+			_isosurfaceRenderTarget = null;
+			_isosurfaceRenderTarget2?.Dispose();
+			_isosurfaceRenderTarget2 = null;
+		});
+    }
 
 	public override void PostSetupContent() {
 		MetaballGroupHandlers = ModContent.GetContent<MetaballGroupHandler>().ToArray();
@@ -36,6 +48,9 @@ public class MetaballGroupManager : ModSystem, IDisposable
 
 		_isosurfaceRenderTarget?.Dispose();
 		_isosurfaceRenderTarget = new RenderTarget2D(Main.graphics.GraphicsDevice, resolution.X, resolution.Y);
+
+		_isosurfaceRenderTarget2?.Dispose();
+		_isosurfaceRenderTarget2 = new RenderTarget2D(Main.graphics.GraphicsDevice, resolution.X, resolution.Y);
 
 		foreach (MetaballGroupHandler group in MetaballGroupHandlers) {
 			GroupToFinalTarget[group]?.Dispose();
@@ -59,11 +74,12 @@ public class MetaballGroupManager : ModSystem, IDisposable
 
 	private static void DrawMetaballsIsosurface() {
 		GraphicsDevice graphicsDevice = Main.graphics.GraphicsDevice;
-		graphicsDevice.SetRenderTarget(_isosurfaceRenderTarget);
+		graphicsDevice.SetRenderTarget(_isosurfaceRenderTarget2);
 		graphicsDevice.Clear(Color.Transparent);
 
 		Effect isosurfaceEffect = Assets.Effects.MetaballIsosurface.Value;
 		isosurfaceEffect.Parameters["textureSize"].SetValue(_metaballRenderTarget.Size());
+		isosurfaceEffect.Parameters["blurAxis"].SetValue(Vector2.UnitX);
 
 		Main.spriteBatch.Begin(SpriteBatchParams.Default with {
 			TransformMatrix = Matrix.Identity,
@@ -71,7 +87,19 @@ public class MetaballGroupManager : ModSystem, IDisposable
 		});
 
 		Main.spriteBatch.Draw(_metaballRenderTarget, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+		Main.spriteBatch.End();
 
+		graphicsDevice.SetRenderTarget(_isosurfaceRenderTarget);
+		graphicsDevice.Clear(Color.Transparent);
+
+		isosurfaceEffect.Parameters["blurAxis"].SetValue(Vector2.UnitY);
+
+		Main.spriteBatch.Begin(SpriteBatchParams.Default with {
+			TransformMatrix = Matrix.Identity,
+			Effect = isosurfaceEffect
+		});
+
+		Main.spriteBatch.Draw(_metaballRenderTarget, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
 		Main.spriteBatch.End();
 	}
 
@@ -105,6 +133,10 @@ public class MetaballGroupManager : ModSystem, IDisposable
 		RenderTargetBinding[] oldTargets = graphicsDevice.GetRenderTargets();
 
 		foreach (MetaballGroupHandler group in MetaballGroupHandlers) {
+			if (!group.ShouldDraw()) {
+				continue;
+			}
+
 			DrawMetaballsToTarget(group);
 			DrawMetaballsIsosurface();
 			DrawMetaballsOutline(group);
@@ -121,23 +153,20 @@ public class MetaballGroupManager : ModSystem, IDisposable
 		}
 
 		foreach (MetaballGroupHandler group in MetaballGroupHandlers) {
-			group.DrawMetaballCluster(GroupToFinalTarget[group]);
+			if (group.ShouldDraw()){
+				group.DrawMetaballCluster(GroupToFinalTarget[group]);
+			}
 		}
 	}
 
 	public override void PostUpdateProjectiles() {
 		foreach (MetaballGroupHandler group in MetaballGroupHandlers) {
-			if (group.Dirty) {
+			if (group.NeedsSorting) {
 				Array.Sort(group.Metaballs, group.SortingFunction);
-				group.Dirty = false;
+				group.NeedsSorting = false;
 			}
 
 			group.Update();
 		}
-	}
-
-	public void Dispose() {
-		_metaballRenderTarget?.Dispose();
-		_isosurfaceRenderTarget?.Dispose();
 	}
 }
