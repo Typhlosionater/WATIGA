@@ -31,10 +31,10 @@ public class BouncyBullet : ModItem
 	}
 
 	public override void AddRecipes() {
-		CreateRecipe(70)
-			.AddIngredient(ItemID.MusketBall, 70)
+		CreateRecipe(50)
+			.AddIngredient(ItemID.MusketBall, 50)
 			.AddIngredient(ItemID.PinkGel)
-			.AddTile(TileID.Anvils)
+			.AddTile(TileID.WorkBenches)
 			.Register();
 	}
 }

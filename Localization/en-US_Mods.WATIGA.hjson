@@ -284,6 +284,26 @@ Items: {
 		DisplayName: Nebula Scepter
 		Tooltip: "'Harness bolts of dark energy to smite your foes'"
 	}
+
+	CommanderPotion: {
+		DisplayName: Commander Potion
+		Tooltip: Increases summon damage and knockback by 10%
+	}
+
+	GildedArrow: {
+		DisplayName: Gilded Arrow
+		Tooltip: Enemies killed will drop more money
+	}
+
+	HolyShot: {
+		DisplayName: Holy Shot
+		Tooltip: Smites enemies for additional damage
+	}
+
+	SacredArrow: {
+		DisplayName: Sacred Arrow
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -317,7 +337,11 @@ Projectiles: {
 	PlasmaRocketHoney.DisplayName: Plasma Rocket Honey
 	PlasmaRocketLava.DisplayName: Plasma Rocket Lava
 	PlasmaRocketWet.DisplayName: Plasma Rocket Wet
-	NebulaSceptreProjectile.DisplayName: Nebula Sceptre Projectile
+	NebulaSceptreProjectile.DisplayName: Dark Energy Bolt
+	GildedArrowProjectile.DisplayName: Gilded Arrow
+	HolyShotProjectile.DisplayName: Holy Shot
+	HolyShotSmiteProjectile.DisplayName: Radiant Smite
+	SacredArrowProjectile.DisplayName: Sacred Arrow
 }
 
 Buffs: {
@@ -354,5 +378,15 @@ Buffs: {
 	PacifyingPotionBuff: {
 		DisplayName: Pacifying
 		Description: Enemies are less likely to target you
+	}
+
+	CommanderPotionBuff: {
+		DisplayName: Commander
+		Description: 10% Increased summon damage and knockback
+	}
+
+	CarapaceBulletDebuff: {
+		Description: Mods.WATIGA.Buffs.CarapaceBulletDebuff.Description
+		DisplayName: Carapace Bullet Debuff
 	}
 }

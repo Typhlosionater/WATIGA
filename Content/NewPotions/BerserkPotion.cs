@@ -38,7 +38,6 @@ public class BerserkPotion : ModItem
 		CreateRecipe()
 			.AddIngredient(ItemID.BottledWater)
 			.AddIngredient(ItemID.ViciousPowder)
-			.AddIngredient(ItemID.Fireblossom)
 			.AddIngredient(ItemID.Shiverthorn)
 			.AddTile(TileID.Bottles)
 			.Register();
@@ -46,7 +45,6 @@ public class BerserkPotion : ModItem
 		CreateRecipe()
 			.AddIngredient(ItemID.BottledWater)
 			.AddIngredient(ItemID.VilePowder)
-			.AddIngredient(ItemID.Fireblossom)
 			.AddIngredient(ItemID.Shiverthorn)
 			.AddTile(TileID.Bottles)
 			.Register();

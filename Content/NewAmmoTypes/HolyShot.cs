@@ -1,10 +1,12 @@
+using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Drawing;
 using WATIGA.Common;
 
 namespace WATIGA.Content.NewAmmoTypes;
 
-public class CarapaceBullet : ModItem
+public class HolyShot : ModItem
 {
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.NewAmmoTypes;
@@ -17,32 +19,32 @@ public class CarapaceBullet : ModItem
 	public override void SetDefaults() {
 		Item.width = 10;
 		Item.height = 16;
-		Item.value = Item.sellPrice(0, 0, 0, 10);
-		Item.rare = ItemRarityID.Yellow;
+		Item.value = Item.sellPrice(0, 0, 0, 7);
+		Item.rare = ItemRarityID.Pink;
 		Item.maxStack = Item.CommonMaxStack;
 		Item.consumable = true;
 
-		Item.damage = 15;
+		Item.damage = 12;
 		Item.DamageType = DamageClass.Ranged;
 		Item.knockBack = 4f;
 		Item.shootSpeed = 5f;
-		Item.shoot = ModContent.ProjectileType<CarapaceBulletProjectile>();
+		Item.shoot = ModContent.ProjectileType<HolyShotProjectile>();
 		Item.ammo = AmmoID.Bullet;
 	}
 
 	public override void AddRecipes() {
-		CreateRecipe(150)
-			.AddIngredient(ItemID.MusketBall, 150)
-			.AddIngredient(ItemID.BeetleHusk)
+		CreateRecipe(100)
+			.AddIngredient(ItemID.MusketBall, 100)
+			.AddIngredient(ItemID.HallowedBar)
 			.AddTile(TileID.MythrilAnvil)
 			.Register();
 	}
 }
 
-public class CarapaceBulletProjectile : ModProjectile
+public class HolyShotProjectile : ModProjectile
 {
 	public override void SetStaticDefaults() {
-		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}
 
@@ -72,30 +74,34 @@ public class CarapaceBulletProjectile : ModProjectile
 	}
 
 	public override void AI() {
-		Lighting.AddLight(Projectile.Center, Color.MediumPurple.ToVector3() * 0.3f);
+		Lighting.AddLight(Projectile.Center, Color.Gold.ToVector3() * 0.5f);
 	}
 
-	public override void Kill(int timeLeft) {
-		SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-		Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+	public override void OnKill(int timeLeft) {
+		Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<HolyShotSmiteProjectile>(), Projectile.damage / 3, Projectile.knockBack / 3, Projectile.owner);
 	}
 }
 
-public class CarapaceBulletDebuff : ModBuff
+public class HolyShotSmiteProjectile : ModProjectile
 {
-	public override void SetStaticDefaults() {
-		Main.debuff[Type] = true;
+	public override void SetDefaults() {
+		Projectile.width = 48;
+		Projectile.height = 48;
+		Projectile.friendly = true;
+		Projectile.tileCollide = false;
+		Projectile.ignoreWater = true;
+
+		Projectile.timeLeft = 3;
+		Projectile.DamageType = DamageClass.Ranged;
+		Projectile.hide = true;
+
+		Projectile.penetrate = -1;
+		Projectile.usesLocalNPCImmunity = true;
+		Projectile.localNPCHitCooldown = -1;
 	}
 
-	public override bool IsLoadingEnabled(Mod mod) {
-		return ServerConfig.Instance.NewContent.NewAmmoTypes;
-	}
-
-	public override void Update(NPC npc, ref int buffIndex) {
-
-	}
-
-	public override void Update(Player player, ref int buffIndex) {
-
+	public override void OnKill(int timeLeft) {
+		SoundEngine.PlaySound(SoundID.Item29 with { Volume = 0.2f }, Projectile.position);
+		ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, ParticleOrchestraType.Excalibur, new ParticleOrchestraSettings { PositionInWorld = Projectile.Center }, Projectile.owner);
 	}
 }

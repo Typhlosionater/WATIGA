@@ -7,7 +7,7 @@ public class MusketBallRecipe : ModSystem
     }
 
     public override void AddRecipes() {
-		Recipe.Create(ItemID.MusketBall, 70)
+		Recipe.Create(ItemID.MusketBall, 100)
 			.AddIngredient(RecipeGroupID.IronBar)
 			.AddTile(TileID.Anvils)
 			.Register();

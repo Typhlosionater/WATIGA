@@ -15,8 +15,8 @@ public class GrislyBullet : ModItem
 	}
 
 	public override void SetDefaults() {
-		Item.width = 12;
-		Item.height = 14;
+		Item.width = 8;
+		Item.height = 12;
 		Item.value = Item.sellPrice(0, 0, 0, 3);
 		Item.rare = ItemRarityID.Blue;
 		Item.maxStack = Item.CommonMaxStack;

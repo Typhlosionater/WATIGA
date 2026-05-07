@@ -46,6 +46,7 @@ public class AntagonizingPotion : ModItem
 
 public class AntagonizingPotionBuff : ModBuff
 {
+
 	public override bool IsLoadingEnabled(Mod mod) {
 		return ServerConfig.Instance.NewContent.NewPotions;
 	}

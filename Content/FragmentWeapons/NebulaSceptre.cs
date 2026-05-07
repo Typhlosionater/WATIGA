@@ -90,7 +90,7 @@ public class NebulaSceptreProjectile : ModProjectile
 		Projectile.friendly = true;
 		Projectile.DamageType = DamageClass.Magic;
 
-		Projectile.penetrate = 3;
+		Projectile.penetrate = 1;
 		Projectile.usesLocalNPCImmunity = true;
 		Projectile.localNPCHitCooldown = 8;
 
@@ -135,6 +135,7 @@ public class NebulaSceptreProjectile : ModProjectile
 				dust.scale = Main.rand.NextFloat(1f, 1.3f);
 				dust.velocity = velocity;
 				dust.noGravity = true;
+				dust.noLight = true;
 			}
 		}
     }

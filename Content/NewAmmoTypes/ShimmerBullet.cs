@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using Terraria.Audio;
 using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Renderers;
 using WATIGA.Common;
@@ -19,7 +20,7 @@ public class ShimmerBullet : ModItem
 
 	public override void SetDefaults() {
 		Item.width = 8;
-		Item.height = 14;
+		Item.height = 12;
 		Item.value = Item.sellPrice(0, 0, 0, 2);
 		Item.rare = ItemRarityID.Green;
 		Item.maxStack = Item.CommonMaxStack;
@@ -74,6 +75,9 @@ public class ShimmerBulletProjectile : ModProjectile
 	extern static ref ParticlePool<PrettySparkleParticle> GetParticlePool(ParticleOrchestrator c);
 
 	public override void OnKill(int timeLeft) {
+		//Sound
+		SoundEngine.PlaySound(SoundID.Item30 with { Volume = 0.05f }, Projectile.Center);
+
 		//SFX characteristics
 		Color colorTint = Main.hslToRgb((Main.rand.NextFloat() + Main.rand.NextFloat() * 0.33f) % 1f, 1f, 0.4f + Main.rand.NextFloat() * 0.25f);
 		Vector2 scale = new Vector2(Main.rand.NextFloat(1f, 1.5f));

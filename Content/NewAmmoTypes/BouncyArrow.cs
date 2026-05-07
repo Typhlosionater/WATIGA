@@ -35,7 +35,7 @@ public class BouncyArrow : ModItem
 		CreateRecipe(50)
 			.AddIngredient(ItemID.WoodenArrow, 50)
 			.AddIngredient(ItemID.PinkGel)
-			.AddTile(TileID.Anvils)
+			.AddTile(TileID.WorkBenches)
 			.Register();
 	}
 }
