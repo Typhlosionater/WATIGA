@@ -27,17 +27,17 @@ NewContentPage: {
 
 	LunaticCultistWeapons: {
 		Label: Lunatic Cultist Weapons
-		Tooltip: ""
+		Tooltip: Adds a set of new thematic weapons to Lunatic Cultist's loot pool
 	}
 
 	SkeletronWeapons: {
 		Label: Skeletron Weapons
-		Tooltip: ""
+		Tooltip: Adds a set of new thematic weapons to skeletron's loot pool
 	}
 
 	HardmodeOreGuns: {
-		Label: Hardmode Ore Guns
-		Tooltip: ""
+		Label: "[tunatex:WATIGA/Content/HardmodeOreGuns/PalladiumRevolver] Hardmode Bar Guns"
+		Tooltip: Adds a new craftable gun to each of the hardmode bar item sets
 	}
 
 	MiscPreHardmodeWeapons: {
@@ -47,22 +47,22 @@ NewContentPage: {
 
 	ExpertAccessories: {
 		Label: "[tunatex:WATIGA/Content/ExpertAccessories/SpellweaveScarf] Expert Accessories"
-		Tooltip: Adds Expert Mode exclusive accessories to the Lunatic Cultist, Betsy, and Mech Bosses
+		Tooltip: Adds new Expert Mode exclusive accessories to the Lunatic Cultist, Betsy, and the Mech Bosses
 	}
 
 	FragmentEmblems: {
 		Label: "[tunatex:WATIGA/Content/FragmentEmblems/SolarEmblem] Fragment Emblems"
-		Tooltip: Adds celestial event tier emblem upgrades
+		Tooltip: Adds new celestial event tier emblem upgrades
 	}
 
 	GemCharmAccessories: {
 		Label: "[tunatex:WATIGA/Content/GemCharms/PrismaticCharm] Gem Charm Accessories"
-		Tooltip: Adds a set of early game accessories crafted from gems
+		Tooltip: Adds a set of new early game accessories crafted from gems
 	}
 
 	SummonerHardmodeOreHelmets: {
-		Label: Summoner Hardmode Ore Helmets
-		Tooltip: ""
+		Label: "[tunatex:WATIGA/Content/HardmodeOreSummonerHelmets/OrichalcumHat] Hardmode Bar Summoner Helmets"
+		Tooltip: Adds a new summoner helmet to each of the early hardmode bar armor sets
 	}
 
 	NewAmmoTypes: {
@@ -74,15 +74,15 @@ NewContentPage: {
 		Label: "[tunatex:WATIGA/Content/NewPotions/BerserkPotion] New Potions"
 		Tooltip: Adds several new potions, filling gaps left by vanilla
 	}
+
+	FlinxFurHat: {
+		Label: "[tunatex:WATIGA/Content/MiscArmor/FlinxFurHat] Flinx Fur Hat"
+		Tooltip: Adds a new helmet to the flinx fur armor set
+	}
 }
 
 VanillaReworksPage: {
 	Tooltip: ""
-
-	FlinxFurRework: {
-		Label: Flinx Fur Rework
-		Tooltip: ""
-	}
 
 	StardustArmorRework: {
 		Label: Stardust Armor Rework
@@ -128,11 +128,6 @@ VanillaReworksPage: {
 RecipeTweaksPage: {
 	Tooltip: ""
 
-	WoodArmorDefenseChange: {
-		Label: Wood Armor Defense Change
-		Tooltip: ""
-	}
-
 	StarCannonRecipeChange: {
 		Label: Star Cannon Recipe Change
 		Tooltip: ""
@@ -164,11 +159,6 @@ MiscPage: {
 
 	TravellingMerchantExtraSlots: {
 		Label: Travelling Merchant Extra Slots
-		Tooltip: ""
-	}
-
-	PaladinShieldVisuals: {
-		Label: Paladin Shield Visuals
 		Tooltip: ""
 	}
 

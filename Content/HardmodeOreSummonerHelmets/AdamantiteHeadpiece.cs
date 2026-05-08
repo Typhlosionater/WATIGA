@@ -22,7 +22,7 @@ public class AdamantiteHeadpiece : ModItem
 	public override void SetDefaults() {
 		Item.width = 26;
 		Item.height = 22;
-		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 3));
+		Item.SetShopValues(ItemRarityColor.LightRed4, Item.sellPrice(gold: 3));
 		Item.defense = 1;
 	}
 

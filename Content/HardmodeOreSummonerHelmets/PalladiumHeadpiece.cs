@@ -22,7 +22,7 @@ public class PalladiumHeadpiece : ModItem
 	public override void SetDefaults() {
 		Item.width = 24;
 		Item.height = 30;
-		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 1, silver: 50));
+		Item.SetShopValues(ItemRarityColor.LightRed4, Item.sellPrice(gold: 1, silver: 50));
 		Item.defense = 1;
 	}
 

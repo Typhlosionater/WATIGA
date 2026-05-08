@@ -55,6 +55,10 @@ public class ServerConfig : ModConfig
 
 		[DefaultValue(true)]
 		[ReloadRequired]
+		public bool FlinxFurHat = true;
+
+		[DefaultValue(true)]
+		[ReloadRequired]
 		public bool NewAmmoTypes = true;
 
 		[DefaultValue(true)]
@@ -65,10 +69,6 @@ public class ServerConfig : ModConfig
 	[SeparatePage]
 	public class VanillaReworksPage
 	{
-		[DefaultValue(true)]
-		[ReloadRequired]
-		public bool FlinxFurRework = true;
-
 		[DefaultValue(true)]
 		[ReloadRequired]
 		public bool StardustArmorRework = true;
@@ -105,9 +105,6 @@ public class ServerConfig : ModConfig
 	[SeparatePage]
 	public class RecipeTweaksPage
 	{
-		[DefaultValue(true)]
-		[ReloadRequired]
-		public bool WoodArmorDefenseChange = true;
 
 		[DefaultValue(true)]
 		[ReloadRequired]
@@ -136,10 +133,6 @@ public class ServerConfig : ModConfig
 		[DefaultValue(true)]
 		[ReloadRequired]
 		public bool TravellingMerchantExtraSlots = true;
-
-		[DefaultValue(true)]
-		[ReloadRequired]
-		public bool PaladinShieldVisuals = true;
 
 		[DefaultValue(true)]
 		[ReloadRequired]

@@ -26,7 +26,7 @@ public class MythrilMask : ModItem
 	public override void SetDefaults() {
 		Item.width = 22;
 		Item.height = 22;
-		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 2, silver: 25));
+		Item.SetShopValues(ItemRarityColor.LightRed4, Item.sellPrice(gold: 2, silver: 25));
 		Item.defense = 1;
 	}
 

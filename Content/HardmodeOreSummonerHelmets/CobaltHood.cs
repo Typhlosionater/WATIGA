@@ -22,7 +22,7 @@ public class CobaltHood : ModItem
 	public override void SetDefaults() {
 		Item.width = 30;
 		Item.height = 24;
-		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 1, silver: 50));
+		Item.SetShopValues(ItemRarityColor.LightRed4, Item.sellPrice(gold: 1, silver: 50));
 		Item.defense = 1;
 	}
 

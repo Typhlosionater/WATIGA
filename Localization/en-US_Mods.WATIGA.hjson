@@ -304,6 +304,12 @@ Items: {
 		DisplayName: Sacred Arrow
 		Tooltip: ""
 	}
+
+	FlinxFurHat: {
+		DisplayName: Flinx Fur Hat
+		Tooltip: Increases summon damage by 5%
+		SetBonus: Increases summon damage by 5%
+	}
 }
 
 Projectiles: {

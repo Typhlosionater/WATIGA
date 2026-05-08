@@ -26,7 +26,7 @@ public class OrichalcumHat : ModItem
 	public override void SetDefaults() {
 		Item.width = 24;
 		Item.height = 24;
-		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 2, silver: 25));
+		Item.SetShopValues(ItemRarityColor.LightRed4, Item.sellPrice(gold: 2, silver: 25));
 		Item.defense = 1;
 	}
 

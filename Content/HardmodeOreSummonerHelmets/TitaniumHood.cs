@@ -22,7 +22,7 @@ public class TitaniumHood : ModItem
 	public override void SetDefaults() {
 		Item.width = 24;
 		Item.height = 24;
-		Item.SetShopValues(ItemRarityColor.LightRed4, Item.buyPrice(gold: 3));
+		Item.SetShopValues(ItemRarityColor.LightRed4, Item.sellPrice(gold: 3));
 		Item.defense = 1;
 	}
 
