@@ -325,6 +325,11 @@ Items: {
 		DisplayName: Combustion
 		Tooltip: Conjures fiery explosions
 	}
+
+	VineWrath: {
+		DisplayName: Vine Wrath
+		Tooltip: Fires two parallel arrows
+	}
 }
 
 Projectiles: {
