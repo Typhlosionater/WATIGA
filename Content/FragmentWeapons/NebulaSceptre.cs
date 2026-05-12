@@ -19,7 +19,7 @@ public class NebulaSceptre : ModItem
 		Item.knockBack = 4f;
 		Item.UseSound = null;
 
-		Item.SetShopValues(ItemRarityColor.StrongRed10, Item.buyPrice(gold: 10));
+		Item.SetShopValues(ItemRarityColor.StrongRed10, Item.sellPrice(gold: 10));
 	}
 
 	public override void AddRecipes() {

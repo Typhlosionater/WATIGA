@@ -310,6 +310,21 @@ Items: {
 		Tooltip: Increases summon damage by 5%
 		SetBonus: Increases summon damage by 5%
 	}
+
+	BloodySceptre: {
+		DisplayName: Bloody Sceptre
+		Tooltip: Sprays out a stream of blood
+	}
+
+	DarkIntent: {
+		DisplayName: Dark Intent
+		Tooltip: ""
+	}
+
+	Combustion: {
+		DisplayName: Combustion
+		Tooltip: Conjures fiery explosions
+	}
 }
 
 Projectiles: {
@@ -348,6 +363,9 @@ Projectiles: {
 	HolyShotProjectile.DisplayName: Holy Shot
 	HolyShotSmiteProjectile.DisplayName: Radiant Smite
 	SacredArrowProjectile.DisplayName: Sacred Arrow
+	BloodySceptreProjectile.DisplayName: Blood Stream
+	DarkIntentProjectile.DisplayName: Dark Intent Projectile
+	CombustionProjectile.DisplayName: Fiery Explosion
 }
 
 Buffs: {

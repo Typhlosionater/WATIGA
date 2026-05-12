@@ -41,8 +41,8 @@ NewContentPage: {
 	}
 
 	MiscPreHardmodeWeapons: {
-		Label: Misc Pre-Hardmode Weapons
-		Tooltip: ""
+		Label: "[tunatex:WATIGA/Content/MiscPreHardmodeWeapons/BloodySceptre] Misc Pre-Hardmode Weapons"
+		Tooltip: Adds new pre-hardmode weapons to fit gaps left by vanilla
 	}
 
 	ExpertAccessories: {

@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Build.Framework;
 using Terraria.Audio;
 using WATIGA.Common;
 
