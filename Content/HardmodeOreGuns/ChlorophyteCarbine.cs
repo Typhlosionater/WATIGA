@@ -15,10 +15,11 @@ public class ChlorophyteCarbine : ModItem
         Item.height = 22;
 
         Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 5, 13f, true);
+		Item.useAnimation = 4 * Item.useTime;
+		Item.reuseDelay = 4 * Item.useTime;
+
 		Item.damage = 38;
 		Item.knockBack = 2f;
-		Item.useAnimation = 4 * Item.useTime;
-		Item.reuseDelay = 20;
 		Item.consumeAmmoOnFirstShotOnly = true;
 
 		Item.SetShopValues(ItemRarityColor.Lime7, Item.sellPrice(gold: 5, silver: 52));

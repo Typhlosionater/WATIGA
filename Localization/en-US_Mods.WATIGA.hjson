@@ -330,6 +330,11 @@ Items: {
 		DisplayName: Vine Wrath
 		Tooltip: Fires two parallel arrows
 	}
+
+	BrambleStave: {
+		DisplayName: Bramble Stave
+		Tooltip: Fires a spray of poisonous stingers
+	}
 }
 
 Projectiles: {
@@ -371,6 +376,7 @@ Projectiles: {
 	BloodySceptreProjectile.DisplayName: Blood Stream
 	DarkIntentProjectile.DisplayName: Dark Intent Projectile
 	CombustionProjectile.DisplayName: Fiery Explosion
+	BrambleStaveProjectile.DisplayName: Poisonous Stinger
 }
 
 Buffs: {
