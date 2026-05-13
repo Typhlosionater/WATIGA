@@ -243,8 +243,8 @@ Items: {
 	}
 
 	HallowedMagnum: {
-		Tooltip: Shoots a powerful, high velocity bullet
 		DisplayName: Hallowed Magnum
+		Tooltip: Consecrates musket balls fired
 	}
 
 	ChlorophyteCarbine: {
@@ -318,7 +318,7 @@ Items: {
 
 	DarkIntent: {
 		DisplayName: Dark Intent
-		Tooltip: ""
+		Tooltip: Creates a piercing beam of dark energy
 	}
 
 	Combustion: {
@@ -374,7 +374,7 @@ Projectiles: {
 	HolyShotSmiteProjectile.DisplayName: Radiant Smite
 	SacredArrowProjectile.DisplayName: Sacred Arrow
 	BloodySceptreProjectile.DisplayName: Blood Stream
-	DarkIntentProjectile.DisplayName: Dark Intent Projectile
+	DarkIntentProjectile.DisplayName: Dark Energy Beam
 	CombustionProjectile.DisplayName: Fiery Explosion
 	BrambleStaveProjectile.DisplayName: Poisonous Stinger
 }
@@ -392,7 +392,7 @@ Buffs: {
 
 	PiercingPotionBuff: {
 		DisplayName: Piercing
-		Description: Increased armor penetration
+		Description: Armor penetration increased by 8
 	}
 
 	BerserkPotionBuff: {

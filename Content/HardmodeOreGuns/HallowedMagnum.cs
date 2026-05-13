@@ -1,5 +1,6 @@
 using Terraria.Enums;
 using WATIGA.Common;
+using WATIGA.Content.NewAmmoTypes;
 
 namespace WATIGA.Content.HardmodeOreGuns;
 
@@ -41,7 +42,7 @@ public class HallowedMagnum : ModItem
 		velocity = velocity.RotatedByRandom(MathHelper.ToRadians(1f));
 
 		if (type == ProjectileID.Bullet) {
-			type = ProjectileID.BulletHighVelocity;
+			type = ModContent.ProjectileType<HolyShotProjectile>();
 		}
     }
 }
