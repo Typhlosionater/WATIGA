@@ -335,6 +335,16 @@ Items: {
 		DisplayName: Bramble Stave
 		Tooltip: Fires a spray of poisonous stingers
 	}
+
+	Crossbone: {
+		DisplayName: Crossbone
+		Tooltip: Fires piercing bone arrows
+	}
+
+	SkeletalStaff: {
+		DisplayName: Skeletal Staff
+		Tooltip: Summons a summoned skull to fight for you
+	}
 }
 
 Projectiles: {
@@ -377,6 +387,7 @@ Projectiles: {
 	DarkIntentProjectile.DisplayName: Dark Energy Beam
 	CombustionProjectile.DisplayName: Fiery Explosion
 	BrambleStaveProjectile.DisplayName: Poisonous Stinger
+	SkeletalStaffMinion.DisplayName: Summoned Skull
 }
 
 Buffs: {
@@ -423,5 +434,10 @@ Buffs: {
 	CarapaceBulletDebuff: {
 		Description: Mods.WATIGA.Buffs.CarapaceBulletDebuff.Description
 		DisplayName: Carapace Bullet Debuff
+	}
+
+	SkeletalStaffMinionBuff: {
+		DisplayName: Summoned Skull
+		Description: The Summoned Skull will fight for you
 	}
 }

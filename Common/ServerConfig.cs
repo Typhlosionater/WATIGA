@@ -117,10 +117,6 @@ public class ServerConfig : ModConfig
 		[DefaultValue(true)]
 		[ReloadRequired]
 		public bool MusketBallRecipe = true;
-
-		[DefaultValue(true)]
-		[ReloadRequired]
-		public bool BloodyTearRecipe = true;
 	}
 
 	[SeparatePage]

@@ -21,7 +21,6 @@ public class SoulStorageDevice : ModItem
 		Item.accessory = true;
 
 		Item.expert = true;
-		Item.expertOnly = true;
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual) {

@@ -31,8 +31,8 @@ NewContentPage: {
 	}
 
 	SkeletronWeapons: {
-		Label: Skeletron Weapons
-		Tooltip: Adds a set of new thematic weapons to skeletron's loot pool
+		Label: "[tunatex:WATIGA/Content/SkeletronLoot/Crossbone] Expanded Skeletron Loot"
+		Tooltip: Adds a set of new thematic weapons to skeletron's loot pool and tweaks the current pool
 	}
 
 	HardmodeOreGuns: {
@@ -85,43 +85,43 @@ VanillaReworksPage: {
 	Tooltip: ""
 
 	StardustArmorRework: {
-		Label: Stardust Armor Rework
+		Label: "[i:3381] Stardust Armor Rework"
 		Tooltip: ""
 	}
 
 	TikiArmorRework: {
-		Label: Tiki Armor Rework
-		Tooltip: ""
+		Label: "[i:1159] Tiki Armor Rework"
+		Tooltip: Turns Tiki Armor into a whip focused armor set
 	}
 
 	GogglesVanityChange: {
-		Label: Goggles Vanity Change
-		Tooltip: ""
+		Label: "[i:37] Goggles into Vanity"
+		Tooltip: Turns Goggles into a vanity item
 	}
 
 	RainArmorVanityChange: {
-		Label: Rain Armor Vanity Change
-		Tooltip: ""
+		Label: "[i:1136] Rain Armor into Vanity"
+		Tooltip: Turns Rain Armor into a vanity set
 	}
 
 	PotionChanges: {
-		Label: Potion Changes
-		Tooltip: ""
+		Label: "[i:303] Potion Changes"
+		Tooltip: Rebalances several vanilla potions including Ammo Reservation, Archery, Magic Power and Summoning
 	}
 
 	ChesterRework: {
-		Label: Chester Rework
-		Tooltip: ""
+		Label: "[i:5098] Chester Rework"
+		Tooltip: Chester now opens your safe and works like the Money Trough instead of being a pet
 	}
 
 	WoodGreavesChange: {
-		Label: Wood Greaves Change
-		Tooltip: ""
+		Label: "[i:729] Wood Greaves Defense"
+		Tooltip: Wood greaves now grant 1 defense
 	}
 
 	CoinGunChange: {
-		Label: Coin Gun Change
-		Tooltip: ""
+		Label: "[i:905] Coin Gun Stats"
+		Tooltip: Coin Gun has 1 damage to it has a proper stat readout
 	}
 }
 
@@ -129,23 +129,18 @@ RecipeTweaksPage: {
 	Tooltip: ""
 
 	StarCannonRecipeChange: {
-		Label: Star Cannon Recipe Change
-		Tooltip: ""
+		Label: "[i:197] Star Cannon Recipe Change"
+		Tooltip: Star Cannon recipe now uses Illegal Gun Parts instead of a Minishark
 	}
 
 	BeetleArmorRecipeChange: {
-		Label: Beetle Armor Recipe Change
-		Tooltip: ""
+		Label: "[i:2199] Beetle Armor Recipe Change"
+		Tooltip: Beetle Armor recipe no longer includes Turtle Armor but costs 2 more Beetle Husks
 	}
 
 	MusketBallRecipe: {
-		Label: Musket Ball Recipe
-		Tooltip: ""
-	}
-
-	BloodyTearRecipe: {
-		Label: Bloody Tear Recipe
-		Tooltip: ""
+		Label: "[i:97] Musket Ball Recipe Added"
+		Tooltip: Musket Balls can now be crafted at an anvil with Iron or Lead Bars
 	}
 }
 
@@ -153,18 +148,18 @@ MiscPage: {
 	Tooltip: ""
 
 	DamageReductionUI: {
-		Label: Damage Reduction UI
-		Tooltip: ""
+		Label: "[i:3224] Damage Reduction Readout"
+		Tooltip: Makes hovering over your defense icon shows your damage reduction
 	}
 
 	TravellingMerchantExtraSlots: {
-		Label: Travelling Merchant Extra Slots
-		Tooltip: ""
+		Label: "[i:2222] Travelling Merchant Post-Plantera Slot"
+		Tooltip: Increases the Travelling Merchant's base item slots by 1 after defeating plantera
 	}
 
 	AmmoLocalImmunityFrames: {
-		Label: Ammo Local Immunity Frames
-		Tooltip: ""
+		Label: "[i:47] Vanilla Ammo Uses Local Immunity Frames"
+		Tooltip: Makes all vanilla arrows and bullets use local immunity frames
 	}
 
 	SoulOfBlight: {
@@ -173,27 +168,27 @@ MiscPage: {
 	}
 
 	KingSlimeSlimeStaffDrop: {
-		Label: King Slime Slime Staff Drop
-		Tooltip: ""
+		Label: "[i:1309] King Slime Drop Slime Staff"
+		Tooltip: King Slime drops Slime Staff at 25% chance in normal and 33% chance in expert
 	}
 
 	SteampunkerOppositeEvilSolutions: {
-		Label: Steampunker Opposite Evil Solutions
-		Tooltip: ""
+		Label: "[i:782] Opposite Evil Solution in Graveyard"
+		Tooltip: The steampunker now sells the opposite evil biome solution during a Blood Moon or Solar Eclipse if in a graveyard
 	}
 
 	GraveyardOppositeEvilMimic: {
-		Label: Graveyard Opposite Evil Mimic
-		Tooltip: ""
+		Label: "[i:3016] Opposite Evil Mimic in Graveyard"
+		Tooltip: Now spawns the opposite evil mimic if summoned in a graveyard
 	}
 
 	FriendlyHeartAndManaStars: {
-		Label: Friendly Heart And Mana Stars
-		Tooltip: ""
+		Label: "[i:58] Friendly Heart And Mana Stars"
+		Tooltip: Players cannot pickup hearts or mana stars if they are full
 	}
 
 	FullHealthRespawn: {
-		Label: Full Health Respawn
-		Tooltip: ""
+		Label: "[i:29] Full Health Respawn"
+		Tooltip: Players respawn at full health
 	}
 }
