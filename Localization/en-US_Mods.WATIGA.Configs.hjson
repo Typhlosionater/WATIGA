@@ -167,6 +167,11 @@ MiscPage: {
 		Tooltip: ""
 	}
 
+	ConsumableUpgradesGlow: {
+		Label: "[i:29] Consumable Upgrades Glow"
+		Tooltip: Life Crystals, Life Crystal Boulders, Mana Crystals and Life Fruit glow faintly
+	}
+
 	KingSlimeSlimeStaffDrop: {
 		Label: "[i:1309] King Slime Drop Slime Staff"
 		Tooltip: King Slime drops Slime Staff at 25% chance in normal and 33% chance in expert
@@ -188,7 +193,7 @@ MiscPage: {
 	}
 
 	FullHealthRespawn: {
-		Label: "[i:29] Full Health Respawn"
+		Label: "[i:28] Full Health Respawn"
 		Tooltip: Players respawn at full health
 	}
 }

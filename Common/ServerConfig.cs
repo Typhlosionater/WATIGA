@@ -140,6 +140,10 @@ public class ServerConfig : ModConfig
 
 		[DefaultValue(true)]
 		[ReloadRequired]
+		public bool ConsumableUpgradesGlow = true;
+
+		[DefaultValue(true)]
+		[ReloadRequired]
 		public bool KingSlimeSlimeStaffDrop = true;
 
 		[DefaultValue(true)]
