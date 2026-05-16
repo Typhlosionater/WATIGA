@@ -11,7 +11,7 @@ public class TitaniumSniper : ModItem
 
 	public override void SetDefaults() {
 		Item.DefaultToRangedWeapon(ProjectileID.Bullet, AmmoID.Bullet, 44, 15f);
-		Item.damage = 88;//???????????????????
+		Item.damage = 88;
 		Item.crit = 15;
 		Item.knockBack = 7f;
 		Item.UseSound = SoundID.Item40;
