@@ -159,7 +159,7 @@ MiscPage: {
 
 	AmmoLocalImmunityFrames: {
 		Label: "[i:47] Vanilla Ammo Uses Local Immunity Frames"
-		Tooltip: Makes all vanilla arrows and bullets use local immunity frames
+		Tooltip: Makes all standard vanilla piercing (non-rocket) ammunition types use local immunity
 	}
 
 	SoulOfBlight: {

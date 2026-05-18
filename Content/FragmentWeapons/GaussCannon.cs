@@ -93,12 +93,17 @@ public abstract class BaseGaussCannonProjectile : ModProjectile
 	}
 
     public override void AI() {
+		if ((MakeLiquidType == LiquidType.Water || MakeLiquidType == LiquidType.Lava || MakeLiquidType == LiquidType.Honey || MakeLiquidType == LiquidType.Dry) && Projectile.wet) {
+			Projectile.velocity = Vector2.Zero;
+			Projectile.timeLeft = 3;
+		}
+		
 		if (Projectile.owner == Main.myPlayer && Projectile.timeLeft <= 3) {
 			Projectile.PrepareBombToBlow();
 			return;
 		}
 
-		if (Main.rand.NextBool()) {
+		if (Main.rand.NextBool() && Projectile.ai[0] >= 5) {
 			int dustType = MakeLiquidType switch {
 				LiquidType.Water => Main.rand.NextBool() ? DustID.Vortex : Dust.dustWater(),
 				LiquidType.Lava => Main.rand.NextBool() ? DustID.Vortex : DustID.Lava,
@@ -110,7 +115,10 @@ public abstract class BaseGaussCannonProjectile : ModProjectile
 			fireDust.velocity *= 0.2f;
 			fireDust.noGravity = true;
 		}
-		
+		if (Projectile.ai[0] < 5) {
+			Projectile.ai[0]++;
+		}
+
 		Projectile.rotation = Projectile.velocity.ToRotation();
     }
 
@@ -134,7 +142,7 @@ public abstract class BaseGaussCannonProjectile : ModProjectile
 		
 		Projectile.Resize(Projectile.width / 3, Projectile.width / 3);
 
-		float numDustMult = BlastSize / 128f;
+		float numDustMult = BlastSize / 64f;
 
 		for (int i = 0; i < 30 * numDustMult; i++) {
 			Dust smokeDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
